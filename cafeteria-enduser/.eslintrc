@@ -70,7 +70,15 @@
             "error",
             "single"
           ],
-          "unused-imports/no-unused-imports": "error"
+          "unused-imports/no-unused-imports": "error",
+          "@angular-eslint/component-selector": [
+            "warn",
+            {
+              "prefix": "cafeteria",
+              "type": "element",
+              "style": "kebab-case"
+            }
+          ]
         }
       },
       {

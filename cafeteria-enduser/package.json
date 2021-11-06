@@ -1,8 +1,9 @@
 {
   "name": "cafeteria-enduser",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
+    "lint": "ng lint cafeteria-enduser",
     "pre-start": "npm run lint",
     "start": "ng serve",
     "pre-build": "npm run lint",
@@ -44,8 +45,9 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
-    "eslint": "^8.1.0",
+    "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsdoc": "^37.0.3",
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint-plugin-unused-imports": "^1.1.5",
     "jasmine-core": "~3.10.0",
