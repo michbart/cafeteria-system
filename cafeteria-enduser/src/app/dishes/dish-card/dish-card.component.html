@@ -1,0 +1,8 @@
+<mat-card class="dish-card">
+  <mat-card-title>{{title}}</mat-card-title>
+  <mat-card-content>
+    <div *ngFor="let dish of dishes">
+      <cafeteria-dish-item [dish]="dish"></cafeteria-dish-item>
+    </div>
+  </mat-card-content>
+</mat-card>

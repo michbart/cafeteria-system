@@ -11,14 +11,20 @@ const routes: Routes = [
     canActivate: [LoginPageGuard],
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   },
+  // {
+  //   path: '',
+  //   canActivate: [AuthGuard],
+  //   loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+  // },
   {
     path: '',
     canActivate: [AuthGuard],
-    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+    loadChildren: () => import('./dishes/dishes.module').then(m => m.DishesModule),
   },
   {
     path: 'users',
     canActivate: [AuthGuard, RoleGuard],
+    canLoad: [AuthGuard, RoleGuard],
     loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
     data: {
       roles: [ROLES.USER_ADMIN],
@@ -26,7 +32,8 @@ const routes: Routes = [
   },
   {
     path: 'dishes',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, RoleGuard],
+    canLoad: [AuthGuard, RoleGuard],
     loadChildren: () => import('./dishes/dishes.module').then(m => m.DishesModule),
     data: {
       roles: [ROLES.COOK], // imho admin by mel mit taky pristup

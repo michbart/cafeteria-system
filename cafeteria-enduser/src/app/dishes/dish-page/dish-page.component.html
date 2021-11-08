@@ -1,0 +1,3 @@
+<div class="main-div" *ngFor="let item of allDishes | keyvalue">
+  <cafeteria-dish-card [dishes]="item.value" [title]="item.key"></cafeteria-dish-card>
+</div>
