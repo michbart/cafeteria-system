@@ -1,0 +1,11 @@
+<mat-card class="dish-card">
+  <mat-card-title>{{ date }}</mat-card-title>
+  <mat-card-content>
+      <mat-list>
+        <div *ngFor="let dish of dishes; last as last" class="wrapper">
+          <cafeteria-dish-item [dish]="dish"></cafeteria-dish-item>
+          <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+        </div>
+      </mat-list>
+  </mat-card-content>
+</mat-card>

@@ -4,7 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DishesModule } from './dishes/dishes.module';
 import { LayoutModule } from './layout/layout.module';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,11 @@ import { LayoutModule } from './layout/layout.module';
     AppRoutingModule,
     LayoutModule,
     BrowserAnimationsModule,
+    DishesModule,
   ],
-  providers: [],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

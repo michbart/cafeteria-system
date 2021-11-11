@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'cafeteria-toolbar',
   templateUrl: './toolbar.component.html',
-  styleUrls: [],
+  styleUrls: ['./toolbar.component.scss'],
 })
 export class ToolbarComponent {
 
