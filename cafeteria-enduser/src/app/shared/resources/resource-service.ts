@@ -1,9 +1,14 @@
 import { Observable, of } from 'rxjs';
 import { Resource } from './resource';
+import { Injectable } from '@angular/core';
+import { USERS } from 'src/app/users/users-mock';
 
+@Injectable({
+  providedIn: 'root',
+})
 export class ResourceService<T extends Resource> {
 
-  constructor(protected resourceType: string) {}
+  constructor() {}
 
   createObject(data: any): Observable<any> {
     return of(null);
@@ -13,8 +18,8 @@ export class ResourceService<T extends Resource> {
     return of(null);
   }
 
-  listObjects(): Observable<any> {
-    return of(null);
+  listObjects(params?: any): Observable<any> {
+    return of(USERS);
   }
 
   deleteObject(id: string): Observable<any> {

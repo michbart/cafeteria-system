@@ -1,14 +1,23 @@
 import { ActivatedRouteSnapshot, CanActivate, CanLoad, RouterStateSnapshot, Route, UrlSegment } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root',
+})
 export class RoleGuard implements CanActivate, CanLoad {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    throw new Error('Method not implemented.');
+    return this.hasRole();
   }
 
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> {
-    throw new Error('Method not implemented.');
+    return this.hasRole();
+  }
+
+  hasRole() {
+    // TODO handle authentication check
+    return of(true);
   }
 
 }

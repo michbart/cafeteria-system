@@ -1,15 +1,19 @@
 <mat-toolbar color="primary">
   <span>Cafeteria</span>
   <span class="spacer"></span>
-  <button mat-icon-button matTooltip="Users">
+  <a
+      mat-icon-button
+      matTooltip="Users"
+      routerLink="/users"
+  >
     <mat-icon>people</mat-icon>
-  </button>
-  <button mat-icon-button matTooltip="Menu">
+  </a>
+  <a mat-icon-button matTooltip="Menu">
     <mat-icon>restaurant</mat-icon>
-  </button>
-  <button mat-icon-button matTooltip="Account balance">
+  </a>
+  <a mat-icon-button matTooltip="Account balance">
     <mat-icon>account_balance</mat-icon>
-  </button>
+  </a>
   <button mat-icon-button matTooltip="Logout">
     <mat-icon>logout</mat-icon>
   </button>

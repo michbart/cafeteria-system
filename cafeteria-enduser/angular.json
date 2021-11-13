@@ -40,6 +40,12 @@
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/",
+                "src/assets/styles/"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

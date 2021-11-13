@@ -1,0 +1,39 @@
+<cafeteria-content-wrapper>
+  <mat-card class="cafeteria-card">
+    <table mat-table [dataSource]="resourceDataSource" [fixedLayout]="true" matSort (matSortChange)="onSortChange($event)" matSortDisableClear>
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Username</th>
+        <td mat-cell *matCellDef="let user">{{ user.username }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="givenName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Given name</th>
+        <td mat-cell *matCellDef="let user">{{ user.givenName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="surname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Surname</th>
+        <td mat-cell *matCellDef="let user">{{ user.surname }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="roles">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Roles</th>
+        <td mat-cell *matCellDef="let user" >
+          <span *ngIf="user.roles; else emptyValue">{{ user.roles }}</span>
+          <ng-template #emptyValue>–</ng-template>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columns"></tr>
+      <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+    </table>
+
+    <mat-paginator
+        [length]="userCount"
+        [pageSize]="10"
+        [pageSizeOptions]="[10, 100]"
+        (page)="onPaginationChange()"
+    >
+    </mat-paginator>
+  </mat-card>
+</cafeteria-content-wrapper>
