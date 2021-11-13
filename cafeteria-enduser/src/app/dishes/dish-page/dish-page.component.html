@@ -1,7 +1,5 @@
-<div fxLayout="row" fxLayoutGap="16px grid" fxLayoutAlign="center">
-  <div fxFlex="60%" fxLayout="column">
-    <div *ngFor="let dishes of allDishes | keyvalue">
-      <cafeteria-dish-card [date]="dishes.key" [dishes]="dishes.value"></cafeteria-dish-card>
-    </div>
+<cafeteria-content-wrapper>
+  <div *ngFor="let dishes of allDishes | keyvalue">
+    <cafeteria-dish-card [date]="dishes.key" [dishes]="dishes.value"></cafeteria-dish-card>
   </div>
-</div>
+</cafeteria-content-wrapper>

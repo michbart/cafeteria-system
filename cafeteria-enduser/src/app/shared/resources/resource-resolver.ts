@@ -11,7 +11,7 @@ export class ResourceResolver<T extends Resource> implements Resolve<T> {
 
   constructor(private resourceService: ResourceService<T>) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): T | Observable<T> | Promise<T> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<T> {
     return this.resourceService.readObject(decodeURIComponent(route.paramMap.get('id') || ''));
   }
 
