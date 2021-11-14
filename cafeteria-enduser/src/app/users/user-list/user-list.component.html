@@ -1,47 +1,51 @@
 <cafeteria-content-wrapper>
   <mat-card class="cafeteria-card">
     <mat-card-title>User management</mat-card-title>
-    <div fxLayout="row" fxLayoutAlign="space-between">
-      <div>
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-between" fxLayoutAlign.sm="start" fxLayoutAlign.xs="start">
+      <div fxFlexOrder.sm="2" fxFlexOrder.xs="2">
         <cafeteria-search-field (changeParams$)="onFilterChange($event)"></cafeteria-search-field>
       </div>
-      <button
-          mat-button
-          routerLink="create"
-      >
-        <mat-icon>add</mat-icon>
-        Create user
-      </button>
+      <div>
+        <button
+            mat-button
+            mat-raised-button
+            routerLink="create"
+            fxFlexOrder.sm="1"
+            fxFlexOrder.xs="1"
+        >
+          Create user
+        </button>
+      </div>
     </div>
-    <table mat-table [dataSource]="resourceDataSource" [fixedLayout]="true" matSort (matSortChange)="onSortChange($event)" matSortDisableClear>
+    <mat-table [dataSource]="resourceDataSource" matSort (matSortChange)="onSortChange($event)" matSortDisableClear>
       <ng-container matColumnDef="username">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Username</th>
-        <td mat-cell *matCellDef="let user">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Username</mat-header-cell>
+        <mat-cell *matCellDef="let user">
           <cafeteria-resource-link routeLink="/users" [resourceId]="user.id" [linkText]="user.username"></cafeteria-resource-link>
-        </td>
+        </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="givenName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Given name</th>
-        <td mat-cell *matCellDef="let user">{{ user.givenName }}</td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Given name</mat-header-cell>
+        <mat-cell *matCellDef="let user">{{ user.givenName }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="surname">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Surname</th>
-        <td mat-cell *matCellDef="let user">{{ user.surname }}</td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Surname</mat-header-cell>
+        <mat-cell *matCellDef="let user">{{ user.surname }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="roles">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Roles</th>
-        <td mat-cell *matCellDef="let user" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Roles</mat-header-cell>>
+        <mat-cell *matCellDef="let user" >
           <span *ngIf="user.roles; else emptyValue">{{ user.roles }}</span>
           <ng-template #emptyValue>–</ng-template>
-        </td>
+        </mat-cell>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="columns"></tr>
-      <tr mat-row *matRowDef="let row; columns: columns;"></tr>
-    </table>
+      <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+    </mat-table>
 
     <mat-paginator
         [length]="userCount"
