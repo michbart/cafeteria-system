@@ -7,6 +7,7 @@ import { ContentWrapperComponent } from './content-wrapper/content-wrapper.compo
 import { ResourceLinkComponent } from './resource-link/resource-link.component';
 import { SearchFieldComponent } from './search-field/search-field.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DetailListItemComponent } from './detail-list-item/detail-list-item.component';
 
 @NgModule({
   imports: [
@@ -19,11 +20,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     ContentWrapperComponent,
     ResourceLinkComponent,
     SearchFieldComponent,
+    DetailListItemComponent,
   ],
   exports: [
     ContentWrapperComponent,
     ResourceLinkComponent,
     SearchFieldComponent,
+    DetailListItemComponent,
   ],
 })
 export class SharedModule {}

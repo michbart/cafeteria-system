@@ -15,7 +15,7 @@ export class ResourceService<T extends Resource> {
   }
 
   readObject(id: string): Observable<any> {
-    return of(null);
+    return of(USERS.find(user => user.id === id)) || of(null);
   }
 
   listObjects(params?: any): Observable<any> {

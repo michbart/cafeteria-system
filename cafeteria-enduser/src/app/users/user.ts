@@ -5,4 +5,6 @@ export interface User extends Resource {
   givenName: string;
   surname: string;
   roles?: string[];
+  password: string;
+  balance: string;
 }

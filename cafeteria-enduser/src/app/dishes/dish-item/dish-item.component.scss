@@ -3,6 +3,13 @@
   justify-content: flex-end;
 }
 
+.list-item {
+  @media (max-width: 599.99px) {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
 .item-name {
   font-weight: bold!important;
 }

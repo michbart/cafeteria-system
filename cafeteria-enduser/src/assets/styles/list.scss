@@ -10,3 +10,17 @@ table {
   }
 
 }
+
+mat-list.detail {
+  & > *:last-child > mat-list-item.list-item {
+    border-bottom: none;
+  }
+
+  mat-list-item.list-item {
+    border-bottom: 1px solid lightgrey;
+
+    .item-label {
+      min-width: 150px;
+    }
+  }
+}

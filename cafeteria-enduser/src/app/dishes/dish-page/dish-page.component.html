@@ -1,5 +1,5 @@
 <cafeteria-content-wrapper>
-  <div *ngFor="let dishes of allDishes | keyvalue">
+  <div class="content" *ngFor="let dishes of allDishes | keyvalue">
     <cafeteria-dish-card [date]="dishes.key" [dishes]="dishes.value"></cafeteria-dish-card>
   </div>
 </cafeteria-content-wrapper>
