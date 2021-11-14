@@ -20,6 +20,7 @@ export class UserListComponent implements OnInit {
   public userCount!: number;
   private sortParams: any;
   private paginationParams: any;
+  private filterParams: any;
 
   constructor(protected resourceService: ResourceService<User>) {
     this.resourceDataSource = new MatTableDataSource();
@@ -40,10 +41,13 @@ export class UserListComponent implements OnInit {
     this.getData();
   }
 
-  // TODO FIXME onFilterChange
+  onFilterChange(filterParams: { search: string }): void {
+    this.filterParams = filterParams;
+    this.getData();
+  }
 
   getData(): void {
-    const params = { ...this.sortParams, ...this.paginationParams };
+    const params = { ...this.sortParams, ...this.paginationParams, ...this.filterParams };
     this.resourceService.listObjects(params).subscribe((response: any) => {
       this.userCount = response.length;
       this.updateTableDataSource(response);
