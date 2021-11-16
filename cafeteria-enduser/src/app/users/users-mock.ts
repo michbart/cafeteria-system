@@ -9,6 +9,7 @@ export const USERS: User[] = [
     givenName: 'John',
     surname: 'Doe',
     balance: '200 CZK',
+    mail: 'doe@example.com',
   },
   {
     id: '2',
@@ -17,6 +18,7 @@ export const USERS: User[] = [
     givenName: 'Pepa',
     surname: 'Sršeň',
     balance: '300 CZK',
+    mail: 'srsen@example.com',
   },
   {
     id: '3',
@@ -25,6 +27,7 @@ export const USERS: User[] = [
     givenName: 'Jan',
     surname: 'Novák',
     balance: '200 CZK',
+    mail: 'novak@example.com',
   },
   {
     id: '4',
@@ -34,6 +37,7 @@ export const USERS: User[] = [
     surname: 'Vařečková',
     roles: [ROLES.COOK],
     balance: '250 CZK',
+    mail: 'vareckova@example.com',
   },
   {
     id: '5',
@@ -43,6 +47,7 @@ export const USERS: User[] = [
     surname: 'Kopr',
     roles: [ROLES.COOK],
     balance: '1000 CZK',
+    mail: 'kopr@example.com',
   },
   {
     id: '6',
@@ -52,5 +57,6 @@ export const USERS: User[] = [
     surname: 'Administrátorský',
     roles: [ROLES.USER_ADMIN, ROLES.COOK],
     balance: '2000 CZK',
+    mail: 'administratorsky@example.com',
   },
 ];

@@ -9,11 +9,12 @@
               <cafeteria-detail-list-item label="Given name" [value]="user.givenName"></cafeteria-detail-list-item>
               <cafeteria-detail-list-item label="Surname" [value]="user.surname"></cafeteria-detail-list-item>
               <cafeteria-detail-list-item label="Username" [value]="user.username"></cafeteria-detail-list-item>
+              <cafeteria-detail-list-item label="E-mail" [value]="user.mail"></cafeteria-detail-list-item>
             </mat-list>
           </mat-card-content>
-          <mat-card-actions>
-            <button mat-button color="primary">Edit</button>
-            <button mat-button color="warn">Delete</button>
+          <mat-card-actions align="end">
+            <button mat-button mat-raised-button color="primary" routerLink="../edit">Edit</button>
+            <button mat-button mat-raised-button color="warn">Delete</button>
           </mat-card-actions>
         </mat-card>
       </div>

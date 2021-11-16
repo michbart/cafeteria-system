@@ -14,6 +14,10 @@ export class ResourceService<T extends Resource> {
     return of(null);
   }
 
+  editObject(data: any): Observable<any> {
+    return of(null);
+  }
+
   readObject(id: string): Observable<any> {
     return of(USERS.find(user => user.id === id)) || of(null);
   }

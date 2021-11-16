@@ -33,6 +33,7 @@ const routes: Routes = [
     component: UserFormComponent,
     data: {
       roles: [ROLES.USER_ADMIN],
+      action: 'edit',
     },
   },
   {
@@ -47,9 +48,10 @@ const routes: Routes = [
   {
     path: 'create',
     canActivate: [RoleGuard],
-    component: UserFormComponent, // TODO FIXME show dialog
+    component: UserFormComponent,
     data: {
       roles: [ROLES.USER_ADMIN],
+      action: 'create',
     },
   },
 ];

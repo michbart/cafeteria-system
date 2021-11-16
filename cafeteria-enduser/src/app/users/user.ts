@@ -7,4 +7,5 @@ export interface User extends Resource {
   roles?: string[];
   password: string;
   balance: string;
+  mail: string;
 }

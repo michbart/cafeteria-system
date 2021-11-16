@@ -9,18 +9,18 @@ import { FormControl } from '@angular/forms';
 })
 export class SearchFieldComponent implements OnInit {
 
-  @Output() changeParams$: EventEmitter<any>;
+  @Output() changeParams: EventEmitter<any>;
 
   public form: FormControl;
 
   constructor() {
     this.form = new FormControl('');
-    this.changeParams$ = new EventEmitter<any>();
+    this.changeParams = new EventEmitter();
   }
 
   ngOnInit(): void {
     this.form.valueChanges.pipe(debounceTime(500)).subscribe((search: any) => {
-      this.changeParams$.emit(search);
+      this.changeParams.emit(search);
     });
   }
 
