@@ -7,6 +7,7 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { RoleGuard } from '../auth/role.guard';
 import { ROLES } from '../auth/roles';
 import { ResourceResolver } from '../shared/resources/resource-resolver';
+import { UserGuard } from './user.guard';
 
 const routes: Routes = [
   {
@@ -20,7 +21,8 @@ const routes: Routes = [
   {
     path: ':id/detail',
     resolve: { user: ResourceResolver },
-    canActivate: [RoleGuard],
+    canActivate: [UserGuard],
+    runGuardsAndResolvers: 'always',
     component: UserDetailComponent,
     data: {
       roles: [ROLES.USER_ADMIN],
@@ -29,7 +31,7 @@ const routes: Routes = [
   {
     path: ':id/edit',
     resolve: { user: ResourceResolver },
-    canActivate: [RoleGuard],
+    canActivate: [UserGuard],
     component: UserFormComponent,
     data: {
       roles: [ROLES.USER_ADMIN],
