@@ -1,0 +1,25 @@
+<div class="wrapper" fxLayout="row" fxLayoutAlign="center">
+  <div fxFlex="30%" fxFlex.sm="90%" fxFlex.xs="90%">
+    <mat-card>
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Username" maxlength="100" formControlName="username" required>
+            <mat-error *ngIf="usernameField.errors?.required">
+              Username cannot be empty.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="password" placeholder="Password" maxlength="100" formControlName="password" required>
+            <mat-error *ngIf="passwordField.errors?.required">
+              Password cannot be empty.
+            </mat-error>
+          </mat-form-field>
+          <button mat-button mat-raised-button type="submit">Login</button>
+          <button mat-button mat-raised-button routerLink="register">Register</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

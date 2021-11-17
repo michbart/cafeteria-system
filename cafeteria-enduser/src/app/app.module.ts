@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { DishesModule } from './dishes/dishes.module';
 import { LayoutModule } from './layout/layout.module';
 import { UsersModule } from './users/users.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { UsersModule } from './users/users.module';
     BrowserAnimationsModule,
     DishesModule,
     UsersModule,
+    HttpClientModule,
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },

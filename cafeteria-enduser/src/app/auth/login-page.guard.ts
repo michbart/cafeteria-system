@@ -1,11 +1,21 @@
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { SecurityProvider } from './security-provider';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root',
+})
 export class LoginPageGuard implements CanActivate {
 
+  constructor(private router: Router, private securityProvider: SecurityProvider) { }
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    // TODO handle authentication check
-    throw new Error('Method not implemented.');
+    if (this.securityProvider.isAuthenticated()) {
+      this.router.navigate(['/']);
+      return of(false);
+    }
+    return of(true);
   }
 
 }

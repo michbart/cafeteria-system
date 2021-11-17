@@ -6,9 +6,11 @@ import { MaterialModule } from '../material.module';
 import { FooterComponent } from './footer/footer.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
+    CommonModule,
     RouterModule,
     MaterialModule,
     DishesModule,

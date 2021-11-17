@@ -13,7 +13,6 @@ const routes: Routes = [
   },
   {
     path: '',
-    canActivate: [AuthGuard],
     loadChildren: () => import('./dishes/dishes.module').then(m => m.DishesModule),
   },
   {
