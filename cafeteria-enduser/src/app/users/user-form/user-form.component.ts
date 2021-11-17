@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ResourceService } from 'src/app/shared/resources/resource-service';
 import { SnackBar } from 'src/app/shared/snack-bar';
 import { Observable } from 'rxjs';
+import { CustomValidators } from 'src/app/shared/custom-validators';
 
 @Component({
   selector: 'cafeteria-user-form',
@@ -39,6 +40,14 @@ export class UserFormComponent implements OnInit {
     return this.form.get('mail');
   }
 
+  get passwordField(): AbstractControl {
+    return this.form.get('password');
+  }
+
+  get confirmPasswordField(): AbstractControl {
+    return this.form.get('confirmPassword');
+  }
+
   get submitLabel() {
     return this.isCreateAction ? 'Create' : 'Save';
   }
@@ -57,9 +66,17 @@ export class UserFormComponent implements OnInit {
       this.action = data.action;
     });
     this.form = new FormGroup({
-      givenName: new FormControl(this.getValue('givenName'), Validators.required),
-      surname: new FormControl(this.getValue('surname'), Validators.required),
-      mail: new FormControl(this.getValue('mail'), Validators.compose([Validators.email, Validators.required])),
+      givenName: new FormControl(this.getValue('givenName'), CustomValidators.requiredString),
+      surname: new FormControl(this.getValue('surname'), CustomValidators.requiredString),
+      mail: new FormControl(this.getValue('mail'), Validators.compose([Validators.email, CustomValidators.requiredString])),
+      password: new FormControl('', Validators.compose([
+        CustomValidators.requiredString,
+        Validators.pattern(/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).*/),
+        Validators.minLength(6),
+      ])),
+      confirmPassword: new FormControl('', CustomValidators.requiredString),
+    }, {
+      validators: CustomValidators.checkPasswords,
     });
   }
 

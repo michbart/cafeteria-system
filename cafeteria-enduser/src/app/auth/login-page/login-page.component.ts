@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SecurityProvider } from '../security-provider';
 import { SnackBar } from 'src/app/shared/snack-bar';
+import { CustomValidators } from 'src/app/shared/custom-validators';
 
 @Component({
   selector: 'cafeteria-login-page',
@@ -28,8 +29,8 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
+      username: new FormControl('', CustomValidators.requiredString),
+      password: new FormControl('', CustomValidators.requiredString),
     });
   }
 
