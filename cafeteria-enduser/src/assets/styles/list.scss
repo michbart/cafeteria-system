@@ -1,12 +1,16 @@
-table {
+.mat-table {
   width: 100%;
 
-  tr.mat-header-row {
+  .mat-header-row {
     height: 46px;
   }
 
-  tr.mat-row {
+  .mat-row {
     height: 40px;
+  }
+
+  .mat-cell {
+    word-break: break-word;
   }
 
 }

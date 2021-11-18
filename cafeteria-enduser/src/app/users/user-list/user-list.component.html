@@ -1,7 +1,7 @@
 <cafeteria-content-wrapper>
   <mat-card class="cafeteria-card">
     <mat-card-title>User management</mat-card-title>
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-between" fxLayoutAlign.sm="start" fxLayoutAlign.xs="start">
+    <div fxLayout="row wrap" fxLayout.sm="column wrap" fxLayout.xs="column wrap" fxLayoutAlign="space-between" fxLayoutAlign.sm="start" fxLayoutAlign.xs="start">
       <div fxFlexOrder.sm="2" fxFlexOrder.xs="2">
         <cafeteria-search-field (changeParams)="onFilterChange($event)"></cafeteria-search-field>
       </div>
@@ -17,7 +17,7 @@
         </button>
       </div>
     </div>
-    <mat-table [dataSource]="resourceDataSource" matSort (matSortChange)="onSortChange($event)" matSortDisableClear>
+    <mat-table [fixedLayout]="true" [dataSource]="resourceDataSource" matSort (matSortChange)="onSortChange($event)" matSortDisableClear>
       <ng-container matColumnDef="username">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Username</mat-header-cell>
         <mat-cell *matCellDef="let user">
