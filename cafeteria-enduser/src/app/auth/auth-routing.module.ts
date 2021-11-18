@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginPageComponent } from './login-page/login-page.component';
+import { UserFormComponent } from '../users/user-form/user-form.component';
+import { LoginPageGuard } from './login-page.guard';
 
 const routes: Routes = [
   {
@@ -10,7 +12,11 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: LoginPageComponent, // TODO + loginPageGuard?
+    canActivate: [LoginPageGuard],
+    component: UserFormComponent,
+    data: {
+      action: 'register',
+    },
   },
 ];
 

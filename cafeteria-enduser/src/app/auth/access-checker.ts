@@ -19,7 +19,7 @@ export class AccessChecker {
 
   hasRole(roles: string[]) {
     const context = this.securityResolver.getContext();
-    const userRoles = context?.roles ? context.roles : [];
+    const userRoles = context?.roles || [];
     return roles.some(role => userRoles.includes(role));
   }
 }

@@ -19,7 +19,7 @@ export class UserFormComponent implements OnInit {
   public form!: FormGroup;
   public pendingRequest: Observable<any>;
 
-  private action: 'create' | 'edit';
+  private action: 'create' | 'edit' | 'register';
 
   constructor(
     protected route: ActivatedRoute,
@@ -49,15 +49,26 @@ export class UserFormComponent implements OnInit {
   }
 
   get submitLabel() {
-    return this.isCreateAction ? 'Create' : 'Save';
+    return this.isEditAction ? 'Save' : 'Create';
   }
 
   get pageTitle() {
+    if (this.isRegisterAction) {
+      return 'Register';
+    }
     return this.isCreateAction ? 'Create user' : `${this.user.givenName} ${this.user.surname}`;
   }
 
   get isCreateAction() {
     return this.action === 'create';
+  }
+
+  get isEditAction() {
+    return this.action === 'edit';
+  }
+
+  get isRegisterAction() {
+    return this.action === 'register';
   }
 
   ngOnInit(): void {
@@ -81,21 +92,34 @@ export class UserFormComponent implements OnInit {
   }
 
   onCancel() {
+    if (this.isRegisterAction) {
+      return this.router.navigate(['../'], { relativeTo: this.route });
+    }
     return this.isCreateAction ? this.goToList() : this.goToDetail();
   }
 
   onSubmit() {
     if (this.form.valid) {
       const data = this.form.value;
-      this.pendingRequest = this.isCreateAction ? this.service.createObject(data) : this.service.editObject(data);
+      this.pendingRequest = this.isEditAction ? this.service.editObject(data) : this.service.createObject(data);
       this.pendingRequest.subscribe(
-        next => this.goToDetail().then(() => this.snackBar.createMessage('fn')),
+        next => {
+          if (this.isRegisterAction) {
+            this.goToDishes().then(() => this.snackBar.createMessage(''));
+          } else {
+            this.goToDetail().then(() => this.snackBar.createMessage('fn'));
+          }
+        },
         error => {
           this.pendingRequest = null;
           this.snackBar.createMessage('bz');
         },
       );
     }
+  }
+
+  private goToDishes() {
+    return this.router.navigate(['/']);
   }
 
   private goToDetail() {
