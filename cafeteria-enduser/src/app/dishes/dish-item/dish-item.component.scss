@@ -3,13 +3,11 @@
   justify-content: flex-end;
 }
 
-.list-item {
-  @media (max-width: 599.99px) {
-    padding-top: 5px;
-    padding-bottom: 5px;
-  }
-}
-
 .item-name {
   font-size: large;
+}
+
+::ng-deep .mat-list .mat-list-item .mat-line {
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }

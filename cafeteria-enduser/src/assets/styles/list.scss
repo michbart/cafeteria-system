@@ -28,3 +28,15 @@ mat-list.detail {
     }
   }
 }
+
+.dishes {
+  & > *:last-child > .list-item {
+    border-bottom: none;
+  }
+
+  .list-item {
+    border-bottom: 1px solid lightgrey;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
