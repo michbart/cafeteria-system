@@ -25,8 +25,8 @@ export class ToolbarComponent implements OnInit {
     return this.accessChecker.canAccessUsers();
   }
 
-  get displayDishesButton(): boolean {
-    return this.accessChecker.canAccessDishes();
+  get displayMealsButton(): boolean {
+    return this.accessChecker.canAccessMeals();
   }
 
   get userAccountLink() {

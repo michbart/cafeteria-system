@@ -4,30 +4,30 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from '../material.module';
-import { DishCardComponent } from './dish-card/dish-card.component';
-import { DishesRoutingModule } from './dishes-routing.module';
-import { DishPageComponent } from './dish-page/dish-page.component';
-import { DishItemComponent } from './dish-item/dish-item.component';
+import { MealCardComponent } from './meal-card/meal-card.component';
+import { MealsRoutingModule } from './meals-routing.module';
+import { MealPageComponent } from './meal-page/meal-page.component';
+import { MealItemComponent } from './meal-item/meal-item.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     declarations: [
-        DishCardComponent,
-        DishPageComponent,
-        DishItemComponent,
+        MealCardComponent,
+        MealPageComponent,
+        MealItemComponent,
     ],
     imports: [
         MaterialModule,
-        DishesRoutingModule,
+        MealsRoutingModule,
         RouterModule,
         CommonModule,
         FlexLayoutModule,
         SharedModule,
     ],
     exports: [
-        DishCardComponent,
-        DishPageComponent,
-        DishItemComponent,
+        MealCardComponent,
+        MealPageComponent,
+        MealItemComponent,
     ],
 })
-export class DishesModule {}
+export class MealsModule {}

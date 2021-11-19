@@ -5,7 +5,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DishesModule } from './dishes/dishes.module';
+import { MealsModule } from './meals/meals.module';
 import { LayoutModule } from './layout/layout.module';
 import { UsersModule } from './users/users.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     LayoutModule,
     BrowserAnimationsModule,
-    DishesModule,
+    MealsModule,
     UsersModule,
     HttpClientModule,
   ],

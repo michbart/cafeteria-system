@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { DishesModule } from '../dishes/dishes.module';
+import { MealsModule } from '../meals/meals.module';
 import { MaterialModule } from '../material.module';
 import { FooterComponent } from './footer/footer.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     RouterModule,
     MaterialModule,
-    DishesModule,
+    MealsModule,
   ],
   declarations: [
     ToolbarComponent,

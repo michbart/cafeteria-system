@@ -13,7 +13,7 @@ export class AccessChecker {
     return this.hasRole([ROLES.USER_ADMIN]);
   }
 
-  canAccessDishes(): boolean {
+  canAccessMeals(): boolean {
     return this.hasRole([ROLES.USER_ADMIN, ROLES.COOK]);
   }
 

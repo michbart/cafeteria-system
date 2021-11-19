@@ -51,8 +51,8 @@ export const USERS: User[] = [
   },
   {
     id: '6',
-    username: 'administratorsky',
-    password: 'administratorsky',
+    username: 'admin',
+    password: 'admin',
     givenName: 'Tomáš',
     surname: 'Administrátorský',
     roles: [ROLES.USER_ADMIN, ROLES.COOK],

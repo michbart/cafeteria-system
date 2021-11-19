@@ -105,7 +105,7 @@ export class UserFormComponent implements OnInit {
       this.pendingRequest.subscribe(
         next => {
           if (this.isRegisterAction) {
-            this.goToDishes().then(() => this.snackBar.createMessage(''));
+            this.goToMeals().then(() => this.snackBar.createMessage(''));
           } else {
             this.goToDetail().then(() => this.snackBar.createMessage('fn'));
           }
@@ -118,7 +118,7 @@ export class UserFormComponent implements OnInit {
     }
   }
 
-  private goToDishes() {
+  private goToMeals() {
     return this.router.navigate(['/']);
   }
 

@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () => import('./dishes/dishes.module').then(m => m.DishesModule),
+    loadChildren: () => import('./meals/meals.module').then(m => m.MealsModule),
   },
   {
     path: 'users',
@@ -25,10 +25,10 @@ const routes: Routes = [
     },
   },
   {
-    path: 'dishes',
+    path: 'meals',
     canActivate: [AuthGuard, RoleGuard],
     canLoad: [AuthGuard, RoleGuard],
-    loadChildren: () => import('./dishes/dishes.module').then(m => m.DishesModule),
+    loadChildren: () => import('./meals/meals.module').then(m => m.MealsModule),
     data: {
       roles: [ROLES.COOK], // imho admin by mel mit taky pristup
     },

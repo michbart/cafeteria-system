@@ -1,6 +1,6 @@
-import { Dish } from './dish';
+import { Meal } from './meal';
 
-export const DISHES: Dish[] = [
+export const MEALS: Meal[] = [
   {
     id: '1',
     name: 'Kuřecí řízek',
