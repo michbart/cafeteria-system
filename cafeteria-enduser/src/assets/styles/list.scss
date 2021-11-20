@@ -29,12 +29,21 @@ mat-list.detail {
   }
 }
 
+.mat-list-base .mat-list-item{
+  word-break: break-word;
+}
+
 .meals {
   & > *:last-child > .list-item {
     border-bottom: none;
   }
 
   .list-item {
+    @media (max-width: 599.99px) {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
     border-bottom: 1px solid lightgrey;
     padding-top: 10px;
     padding-bottom: 10px;
