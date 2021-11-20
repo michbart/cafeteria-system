@@ -109,7 +109,7 @@ export class UserFormComponent implements OnInit {
           if (this.isRegisterAction) {
             this.goToMeals().then(() => this.snackBar.createMessage(''));
           } else {
-            this.goToDetail().then(() => this.snackBar.createMessage('fn'));
+            this.goToDetail(next.id).then(() => this.snackBar.createMessage('fn'));
           }
         },
         error => {
@@ -124,8 +124,8 @@ export class UserFormComponent implements OnInit {
     return this.router.navigate(['/']);
   }
 
-  private goToDetail() {
-    return this.router.navigate(['../detail'], { relativeTo: this.route });
+  private goToDetail(id?: string) {
+    return this.router.navigate([this.isCreateAction ? `../${id}/detail` : '../detail'], { relativeTo: this.route });
   }
 
   private goToList() {
