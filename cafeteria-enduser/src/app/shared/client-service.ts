@@ -31,12 +31,16 @@ export class ClientService {
     return this.httpClient.get(this.BASE_URL + path);
   }
 
-  patch(path: string, data: any): Observable<any> {
-    return this.httpClient.patch(this.BASE_URL + path, data);
+  query(path: string, params: any): Observable<any> {
+    return this.httpClient.post(this.BASE_URL + path, params);
   }
 
-  delete(path: string, data: any): Observable<any> {
-    return this.httpClient.delete(this.BASE_URL + path, data);
+  patch(path: string, data: any): Observable<any> {
+    return this.httpClient.get(this.BASE_URL + path, data);
+  }
+
+  delete(path: string): Observable<any> {
+    return this.httpClient.delete(this.BASE_URL + path);
   }
 
 }

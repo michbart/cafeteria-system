@@ -3,7 +3,7 @@
     <mat-card-title>User management</mat-card-title>
     <div fxLayout="row wrap" fxLayout.sm="column wrap" fxLayout.xs="column wrap" fxLayoutAlign="space-between" fxLayoutAlign.sm="start" fxLayoutAlign.xs="start">
       <div fxFlexOrder.sm="2" fxFlexOrder.xs="2">
-        <cafeteria-search-field (changeParams)="onFilterChange($event)"></cafeteria-search-field>
+        <cafeteria-search-field (changeParams)="onFilterChange($event)" source="searchValue"></cafeteria-search-field>
       </div>
       <div>
         <button

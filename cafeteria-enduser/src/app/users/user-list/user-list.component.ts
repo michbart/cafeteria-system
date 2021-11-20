@@ -25,6 +25,7 @@ export class UserListComponent implements OnInit {
   constructor(protected resourceService: ResourceService<User>) {
     this.resourceDataSource = new MatTableDataSource();
     this.resourceDataSource.sort = this.sort;
+    this.resourceService.endpointName = 'users';
   }
 
   ngOnInit(): void {
@@ -32,7 +33,7 @@ export class UserListComponent implements OnInit {
   }
 
   onSortChange(sortParams: any): void {
-    this.sortParams = sortParams;
+    this.sortParams = { sortField: sortParams.active, sortDirection: sortParams.direction };
     this.getData();
   }
 
@@ -41,7 +42,7 @@ export class UserListComponent implements OnInit {
     this.getData();
   }
 
-  onFilterChange(filterParams: { search: string }): void {
+  onFilterChange(filterParams: { searchValue: string }): void {
     this.filterParams = filterParams;
     this.getData();
   }
@@ -49,7 +50,7 @@ export class UserListComponent implements OnInit {
   getData(): void {
     const params = { ...this.sortParams, ...this.paginationParams, ...this.filterParams };
     this.resourceService.listObjects(params).subscribe((response: any) => {
-      this.userCount = response.length;
+      this.userCount = response?.length;
       this.updateTableDataSource(response);
     });
   }

@@ -1,32 +1,38 @@
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Resource } from './resource';
 import { Injectable } from '@angular/core';
-import { USERS } from 'src/app/users/users-mock';
+import { ClientServiceMock } from '../client-service.mock';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ResourceService<T extends Resource> {
 
-  constructor() {}
+  private endpoint: string;
 
-  createObject(data: any): Observable<any> {
-    return of(null);
+  constructor(protected clientService: ClientServiceMock) { }
+
+  set endpointName(endpoint: string) {
+    this.endpoint = endpoint;
   }
 
-  editObject(data: any): Observable<any> {
-    return of(null);
+  createObject(data: any): Observable<T> {
+    return this.clientService.create(this.endpoint, data);
   }
 
-  readObject(id: string): Observable<any> {
-    return of(USERS.find(user => user.id === id)) || of(null);
+  editObject(id: string, data: any): Observable<T> {
+    return this.clientService.patch(`${this.endpoint}/${encodeURIComponent(id)}`, data);
+  }
+
+  readObject(id: string): Observable<T> {
+    return this.clientService.read(`${this.endpoint}/${encodeURIComponent(id)}`);
   }
 
   listObjects(params?: any): Observable<any> {
-    return of(USERS);
+    return this.clientService.query(this.endpoint, params);
   }
 
-  deleteObject(id: string): Observable<any> {
-    return of(null);
+  deleteObject(id: string): Observable<T> {
+    return this.clientService.delete(`${this.endpoint}/${encodeURIComponent(id)}`);
   }
 }

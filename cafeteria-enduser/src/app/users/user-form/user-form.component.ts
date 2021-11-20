@@ -26,7 +26,9 @@ export class UserFormComponent implements OnInit {
     protected router: Router,
     protected service: ResourceService<User>,
     protected snackBar: SnackBar,
-  ) { }
+  ) {
+    this.service.endpointName = 'users';
+  }
 
   get givenNameField(): AbstractControl {
     return this.form.get('givenName');
@@ -101,7 +103,7 @@ export class UserFormComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       const data = this.form.value;
-      this.pendingRequest = this.isEditAction ? this.service.editObject(data) : this.service.createObject(data);
+      this.pendingRequest = this.isEditAction ? this.service.editObject(this.user.id, data) : this.service.createObject(data);
       this.pendingRequest.subscribe(
         next => {
           if (this.isRegisterAction) {

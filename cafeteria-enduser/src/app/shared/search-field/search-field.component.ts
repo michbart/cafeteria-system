@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { debounceTime } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
@@ -9,9 +9,11 @@ import { FormControl } from '@angular/forms';
 })
 export class SearchFieldComponent implements OnInit {
 
+  @Input() source: string;
   @Output() changeParams: EventEmitter<any>;
 
   public form: FormControl;
+  private searchParams: any = {};
 
   constructor() {
     this.form = new FormControl('');
@@ -20,7 +22,8 @@ export class SearchFieldComponent implements OnInit {
 
   ngOnInit(): void {
     this.form.valueChanges.pipe(debounceTime(500)).subscribe((search: any) => {
-      this.changeParams.emit(search);
+      this.searchParams[this.source] = search;
+      this.changeParams.emit(this.searchParams);
     });
   }
 

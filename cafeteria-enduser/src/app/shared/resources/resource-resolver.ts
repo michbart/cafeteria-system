@@ -12,6 +12,7 @@ export class ResourceResolver<T extends Resource> implements Resolve<T> {
   constructor(private resourceService: ResourceService<T>) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<T> {
+    this.resourceService.endpointName = route.routeConfig.resolve?.user ? 'users' : 'meals';
     return this.resourceService.readObject(decodeURIComponent(route.paramMap.get('id') || ''));
   }
 
