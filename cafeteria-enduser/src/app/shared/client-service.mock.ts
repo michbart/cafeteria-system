@@ -7,6 +7,8 @@ import { User } from '../users/user';
 import { USERS } from '../users/users-mock';
 import { Meal } from '../meals/meal';
 import { MEALS } from '../meals/meals-mock';
+import { Order } from '../orders/order';
+import { ORDERS } from '../orders/orders-mock';
 
 @Injectable({
   providedIn: 'root',
@@ -16,11 +18,13 @@ export class ClientServiceMock {
   private BASE_URL: string;
   private users: User[];
   private meals: Meal[];
+  private orders: Order[];
 
-  constructor(private httpClient: HttpClient) {
+  constructor() {
     this.BASE_URL = 'changeme';
     this.users = USERS;
     this.meals = MEALS;
+    this.orders = ORDERS;
   }
 
   login(username: string, password: string): Observable<any> {
@@ -42,8 +46,14 @@ export class ClientServiceMock {
       return of(user);
     }
     if (path === 'meals') {
-      this.meals.push(data);
-      return of(data);
+      const meal = { id: uuid(), ...data };
+      this.meals.push(meal);
+      return of(meal);
+    }
+    if (path === 'orders') {
+      const order = { id: uuid(), ...data };
+      this.orders.push(order);
+      return of(order);
     }
     return of(null);
   }
@@ -56,6 +66,9 @@ export class ClientServiceMock {
     if (parts[0] === 'meals') {
       return of(this.meals.find(meal => meal.id === parts[1])) || of(null);
     }
+    if (parts[0] === 'orders') {
+      return of(this.orders.find(order => order.id === parts[1])) || of(null);
+    }
     return of(null);
   }
 
@@ -67,11 +80,14 @@ export class ClientServiceMock {
     if (parts[0] === 'meals') {
       return of(this.queryData(this.meals, params));
     }
+    if (parts[0] === 'orders') {
+      return of(this.queryData(this.orders, params));
+    }
     return of(null);
   }
 
   patch(path: string, data: any): Observable<any> {
-    return this.httpClient.patch(this.BASE_URL + path, data);
+    return of(data);
   }
 
   delete(path: string): Observable<any> {
@@ -82,12 +98,15 @@ export class ClientServiceMock {
     if (parts[0] === 'meals') {
       this.meals = this.meals.filter(meal => meal.id !== parts[1]);
     }
+    if (parts[0] === 'orders') {
+      this.orders = this.orders.filter(order => order.id !== parts[1]);
+    }
     return of(null);
   }
 
   private queryData(collection, params: any) {
     let data = collection;
-    if (params.searchValue) {
+    if (params?.searchValue) {
       data = data.filter(el => {
         const value = params.searchValue.toLowerCase();
         return el.username.toLowerCase().includes(value) ||
@@ -95,7 +114,9 @@ export class ClientServiceMock {
             el.surname.toLowerCase().includes(value);
       });
     }
-    data = _.orderBy(data, [params.sortField], [params.sortDirection]);
+    if (params?.sortField && params?.sortDirection) {
+      data = _.orderBy(data, [params.sortField], [params.sortDirection]);
+    }
     return data;
   }
 
