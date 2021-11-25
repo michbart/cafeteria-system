@@ -1,0 +1,19 @@
+<cafeteria-content-wrapper>
+  <mat-card>
+    <mat-card-title>Menu</mat-card-title>
+    <mat-card-content>
+      <cafeteria-resource-table
+          sortField="date"
+          sortDirection="desc"
+          endpointName="meals"
+          [displayedColumns]="displayedColumns"
+          [columnLabels]="columnLabels"
+          [valueKeys]="displayedColumns"
+          [options]="{ showOrders: true }"
+          routeLink="/meals"
+          linkField="id"
+      >
+      </cafeteria-resource-table>
+    </mat-card-content>
+  </mat-card>
+</cafeteria-content-wrapper>

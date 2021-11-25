@@ -30,7 +30,7 @@ const routes: Routes = [
     canLoad: [AuthGuard, RoleGuard],
     loadChildren: () => import('./meals/meals.module').then(m => m.MealsModule),
     data: {
-      roles: [ROLES.COOK], // imho admin by mel mit taky pristup
+      roles: [ROLES.COOK, ROLES.USER_ADMIN], // imho admin by mel mit taky pristup
     },
   },
 ];

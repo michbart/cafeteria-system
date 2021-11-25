@@ -8,7 +8,7 @@ import { ResourceService } from '../resources/resource-service';
 @Component({
   selector: 'cafeteria-resource-table',
   templateUrl: './resource-table.component.html',
-  styleUrls: [],
+  styleUrls: ['./resource-table.component.scss'],
 })
 export class ResourceTableComponent<T extends Resource> implements AfterViewInit, OnInit {
 
@@ -23,7 +23,7 @@ export class ResourceTableComponent<T extends Resource> implements AfterViewInit
   @Input() endpointName: string;
   @Input() routeLink?: string;
   @Input() linkField?: string;
-  @Input() resource?: T;
+  @Input() options?: any;
 
   public resourceDataSource: MatTableDataSource<T>;
   public itemCount!: number;
@@ -32,7 +32,7 @@ export class ResourceTableComponent<T extends Resource> implements AfterViewInit
 
   ngOnInit(): void {
     this.resourceService.endpointName = this.endpointName;
-    this.resourceService.listObjects({ id: this.resource?.id }).subscribe((response: any) => {
+    this.resourceService.listObjects(this.options).subscribe((response: any) => {
       this.itemCount = response?.length;
       this.resourceDataSource = new MatTableDataSource<T>(response);
     });

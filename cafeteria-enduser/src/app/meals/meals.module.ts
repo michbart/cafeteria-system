@@ -9,12 +9,16 @@ import { MealsRoutingModule } from './meals-routing.module';
 import { MealPageComponent } from './meal-page/meal-page.component';
 import { MealItemComponent } from './meal-item/meal-item.component';
 import { SharedModule } from '../shared/shared.module';
+import { MealListComponent } from './meal-list/meal-list.component';
+import { MealDetailComponent } from './meal-detail/meal-detail.component';
 
 @NgModule({
     declarations: [
         MealCardComponent,
         MealPageComponent,
         MealItemComponent,
+        MealListComponent,
+        MealDetailComponent,
     ],
     imports: [
         MaterialModule,
@@ -28,6 +32,8 @@ import { SharedModule } from '../shared/shared.module';
         MealCardComponent,
         MealPageComponent,
         MealItemComponent,
+        MealListComponent,
+        MealDetailComponent,
     ],
 })
 export class MealsModule {}

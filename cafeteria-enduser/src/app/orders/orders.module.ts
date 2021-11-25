@@ -5,12 +5,9 @@ import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from '../material.module';
 import { SharedModule } from '../shared/shared.module';
-import { OrderListComponent } from './order-list/order-list.component';
 
 @NgModule({
-  declarations: [
-    OrderListComponent,
-  ],
+  declarations: [],
   imports: [
       MaterialModule,
       RouterModule,
@@ -18,8 +15,6 @@ import { OrderListComponent } from './order-list/order-list.component';
       FlexLayoutModule,
       SharedModule,
   ],
-  exports: [
-    OrderListComponent,
-  ],
+  exports: [],
 })
 export class MealsModule {}
