@@ -11,6 +11,9 @@ import { AccessChecker } from 'src/app/auth/access-checker';
 export class UserDetailComponent implements OnInit {
 
   public user!: User;
+  // TODO FIXME name field should be based on app language
+  public displayedColumns: string[] = ['name', 'date', 'cost'];
+  public columnLabels: string[] = ['Name', 'Date', 'Cost'];
 
   constructor(
     protected route: ActivatedRoute,

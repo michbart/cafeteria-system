@@ -19,9 +19,11 @@ export class ResourceTableComponent<T extends Resource> implements AfterViewInit
   @Input() displayedColumns: string[];
   @Input() valueKeys: string[];
   @Input() sortField: string;
+  @Input() sortDirection?: string;
   @Input() endpointName: string;
-  @Input() routeLink: string;
-  @Input() linkField: string;
+  @Input() routeLink?: string;
+  @Input() linkField?: string;
+  @Input() resource?: T;
 
   public resourceDataSource: MatTableDataSource<T>;
   public itemCount!: number;
@@ -30,7 +32,7 @@ export class ResourceTableComponent<T extends Resource> implements AfterViewInit
 
   ngOnInit(): void {
     this.resourceService.endpointName = this.endpointName;
-    this.resourceService.listObjects().subscribe((response: any) => {
+    this.resourceService.listObjects({ id: this.resource?.id }).subscribe((response: any) => {
       this.itemCount = response?.length;
       this.resourceDataSource = new MatTableDataSource<T>(response);
     });
@@ -39,7 +41,7 @@ export class ResourceTableComponent<T extends Resource> implements AfterViewInit
   ngAfterViewInit(): void {
     this.resourceDataSource.paginator = this.paginator;
     this.resourceDataSource.sort = this.sort;
-    this.sort.sort(({ id: this.sortField, start: 'asc' }) as MatSortable);
+    this.sort.sort(({ id: this.sortField, start: this.sortDirection ||'asc' }) as MatSortable);
     this.changeDetector.detectChanges();
   }
 

@@ -78,7 +78,10 @@ export class ClientServiceMock {
       return of(this.queryData(this.meals, params));
     }
     if (parts[0] === 'orders') {
-      return of(this.queryData(this.orders, params));
+      const userOrders = [];
+      this.orders.filter(order => order.userId === params.id).forEach(order =>
+        userOrders.push(this.meals.find(meal => meal.id === order.id)));
+      return of(this.queryData(userOrders, params));
     }
     return of(null);
   }

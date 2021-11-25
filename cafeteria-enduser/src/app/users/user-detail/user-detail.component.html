@@ -34,6 +34,16 @@
     <div fxFlex="grow">
       <mat-card>
         <mat-card-title>Order history</mat-card-title>
+        <cafeteria-resource-table
+            sortField="date"
+            sortDirection="desc"
+            endpointName="orders"
+            [displayedColumns]="displayedColumns"
+            [columnLabels]="columnLabels"
+            [valueKeys]="displayedColumns"
+            [resource]="user"
+        >
+        </cafeteria-resource-table>
       </mat-card>
     </div>
   </div>
