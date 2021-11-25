@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import _ from 'lodash';
 import { v4 as uuid } from 'uuid';
@@ -15,13 +14,11 @@ import { ORDERS } from '../orders/orders-mock';
 })
 export class ClientServiceMock {
 
-  private BASE_URL: string;
   private users: User[];
   private meals: Meal[];
   private orders: Order[];
 
   constructor() {
-    this.BASE_URL = 'changeme';
     this.users = USERS;
     this.meals = MEALS;
     this.orders = ORDERS;
@@ -40,7 +37,7 @@ export class ClientServiceMock {
       const user = {
         id: uuid(),
         username: data.surname.toLowerCase(),
-        ...data
+        ...data,
       };
       this.users.push(user);
       return of(user);

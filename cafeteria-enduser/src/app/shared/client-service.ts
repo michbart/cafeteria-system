@@ -14,12 +14,10 @@ export class ClientService {
   }
 
   login(username: string, password: string): Observable<any> {
-    // add header
     return this.httpClient.get(`${this.BASE_URL}/login`);
   }
 
   logout(): Observable<any> {
-    // TBD
     return of(null);
   }
 
