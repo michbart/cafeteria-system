@@ -1,0 +1,33 @@
+<cafeteria-content-wrapper>
+  <div fxLayout="row" fxLayoutGap="16px" fxLayout.sm="column" fxLayout.xs="column">
+    <div fxFlex="grow">
+      <mat-card>
+        <mat-card-title>Meal detail</mat-card-title>
+        <mat-card-content>
+          <mat-list class="detail">
+            <cafeteria-detail-list-item label="Czech name" [value]="meal.name"></cafeteria-detail-list-item>
+            <cafeteria-detail-list-item label="English name" [value]="meal.nameEng"></cafeteria-detail-list-item>
+            <cafeteria-detail-list-item label="Date" [value]="meal.date"></cafeteria-detail-list-item>
+            <cafeteria-detail-list-item label="Cost" [value]="meal.cost"></cafeteria-detail-list-item>
+          </mat-list>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-button mat-raised-button color="primary" routerLink="../edit">Edit</button>
+          <button mat-button mat-raised-button color="warn">Delete</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div fxFlex="grow">
+      <mat-card>
+        <mat-card-title>Alergens</mat-card-title>
+        <mat-card-content>
+          <mat-list class="detail">
+            <div *ngFor="let alergen of alergens">
+              <cafeteria-detail-list-item [label]="alergen.key" [value]="alergen.value"></cafeteria-detail-list-item>
+            </div>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</cafeteria-content-wrapper>

@@ -148,5 +148,6 @@ export const MEALS: Meal[] = [
     nameEng: 'Alpine blueberry dumplings with vanilla cream sprinkled with poppy seeds',
     cost: '115 CZK',
     date: '18.11.2021',
+    alergens: ['3', '2', '5'],
   },
 ];

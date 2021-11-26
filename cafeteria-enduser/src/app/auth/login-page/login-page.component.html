@@ -16,8 +16,10 @@
               Password cannot be empty.
             </mat-error>
           </mat-form-field>
-          <button mat-button mat-raised-button type="submit">Login</button>
-          <button mat-button mat-raised-button routerLink="register">Register</button>
+          <div fxLayoutAlign="center" fxLayoutGap="16px">
+            <button mat-button mat-raised-button type="submit" color="primary">Login</button>
+            <button mat-button mat-raised-button routerLink="register">Register</button>
+          </div>
         </form>
       </mat-card-content>
     </mat-card>

@@ -2,15 +2,16 @@
   width: 100%;
 
   .mat-header-row {
-    height: 46px;
+    min-height: 46px;
   }
 
   .mat-row {
-    height: 40px;
+    min-height: 40px;
   }
 
   .mat-cell {
     word-break: break-word;
+    margin-right: 5px;
   }
 
 }
@@ -22,6 +23,9 @@ mat-list.detail {
 
   mat-list-item.list-item {
     border-bottom: 1px solid lightgrey;
+    min-height: 48px;
+    height: auto !important;
+    display: flex;
 
     .item-label {
       min-width: 150px;
