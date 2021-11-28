@@ -104,19 +104,19 @@ export class UserFormComponent implements OnInit {
     if (this.form.valid) {
       const data = this.form.value;
       this.pendingRequest = this.isEditAction ? this.service.editObject(this.user.id, data) : this.service.createObject(data);
-      this.pendingRequest.subscribe(
-        next => {
+      this.pendingRequest.subscribe({
+        next: (value) => {
           if (this.isRegisterAction) {
             this.goToMeals().then(() => this.snackBar.createMessage(''));
           } else {
-            this.goToDetail(next.id).then(() => this.snackBar.createMessage('fn'));
+            this.goToDetail(value.id).then(() => this.snackBar.createMessage('fn'));
           }
         },
-        error => {
+        error: (e) => {
           this.pendingRequest = null;
           this.snackBar.createMessage('bz');
         },
-      );
+      });
     }
   }
 

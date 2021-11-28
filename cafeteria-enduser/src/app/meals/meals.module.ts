@@ -11,6 +11,8 @@ import { MealItemComponent } from './meal-item/meal-item.component';
 import { SharedModule } from '../shared/shared.module';
 import { MealListComponent } from './meal-list/meal-list.component';
 import { MealDetailComponent } from './meal-detail/meal-detail.component';
+import { MealFormComponent } from './meal-form/meal-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -19,6 +21,7 @@ import { MealDetailComponent } from './meal-detail/meal-detail.component';
         MealItemComponent,
         MealListComponent,
         MealDetailComponent,
+        MealFormComponent,
     ],
     imports: [
         MaterialModule,
@@ -27,6 +30,7 @@ import { MealDetailComponent } from './meal-detail/meal-detail.component';
         CommonModule,
         FlexLayoutModule,
         SharedModule,
+        ReactiveFormsModule,
     ],
     exports: [
         MealCardComponent,
@@ -34,6 +38,7 @@ import { MealDetailComponent } from './meal-detail/meal-detail.component';
         MealItemComponent,
         MealListComponent,
         MealDetailComponent,
+        MealFormComponent,
     ],
 })
 export class MealsModule {}
