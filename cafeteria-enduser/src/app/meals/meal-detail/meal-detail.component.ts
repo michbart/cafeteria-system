@@ -18,7 +18,7 @@ export class MealDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.data.subscribe((data: any) => {
       this.meal = data.meal;
-      this.alergens = ALERGENS.filter(alergen => this.meal.alergens.includes(alergen.key)).sort((a, b) => a > b ? -1 : 1);
+      this.alergens = ALERGENS.filter(alergen => this.meal.alergens?.includes(alergen.key)).sort((a, b) => a > b ? -1 : 1);
     });
   }
 }

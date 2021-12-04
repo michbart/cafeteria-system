@@ -41,6 +41,16 @@ const routes: Routes = [
       action: 'edit',
     },
   },
+  {
+    path: 'create',
+    canActivate: [RoleGuard],
+    component: MealFormComponent,
+    resolve: { meal: ResourceResolver },
+    data: {
+      roles: [ROLES.COOK, ROLES.USER_ADMIN],
+      action: 'create',
+    },
+  },
 ];
 
 @NgModule({

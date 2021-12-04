@@ -16,7 +16,7 @@
       <mat-cell *matCellDef="let resource">
         <span *ngIf="column !== linkField; else resourceLink">
           <span *ngIf="!!resource[valueKeys[i]]; else emptyValue">
-            {{ resource[valueKeys[i]] }}
+            {{ column === 'date' ? (resource[valueKeys[i]] | date: 'dd.MM.yyyy') : resource[valueKeys[i]] }}
           </span>
           <ng-template #emptyValue>-</ng-template>
         </span>

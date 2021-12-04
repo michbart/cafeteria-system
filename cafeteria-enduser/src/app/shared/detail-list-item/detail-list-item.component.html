@@ -1,4 +1,4 @@
 <mat-list-item class="list-item">
   <div class="item-label">{{ label }}</div>
-  <div class="item-value">{{ value }}</div>
+  <div class="item-value">{{ label === 'Date' ? (value | date: 'dd.MM.yyyy') : value }}</div>
 </mat-list-item>

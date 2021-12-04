@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -7,18 +7,20 @@ import { ResourceService } from 'src/app/shared/resources/resource-service';
 import { SnackBar } from 'src/app/shared/snack-bar';
 import { User } from 'src/app/users/user';
 import { Meal } from '../meal';
+import { ALERGENS } from '../alergens';
 
 @Component({
-selector: 'cafeteria-meal-form',
-templateUrl: './meal-form.component.html',
-styleUrls: [],
+  selector: 'cafeteria-meal-form',
+  templateUrl: './meal-form.component.html',
+  styleUrls: [],
 })
-export class MealFormComponent {
+export class MealFormComponent implements OnInit {
 
   @Input() meal?: Meal;
 
   public form!: FormGroup;
   public pendingRequest: Observable<any>;
+  public alergens: any[];
 
   private action: 'create' | 'edit';
 
@@ -37,6 +39,10 @@ export class MealFormComponent {
 
   get nameEngField(): AbstractControl {
     return this.form.get('nameEng');
+  }
+
+  get dateField(): AbstractControl {
+    return this.form.get('date');
   }
 
   get costField(): AbstractControl {
@@ -64,6 +70,7 @@ export class MealFormComponent {
   }
 
   ngOnInit(): void {
+    this.alergens = ALERGENS;
     this.route.data.subscribe((data: any) => {
       this.meal = data.meal;
       this.action = data.action;
@@ -71,8 +78,9 @@ export class MealFormComponent {
     this.form = new FormGroup({
       name: new FormControl(this.getValue('name'), CustomValidators.requiredString),
       nameEng: new FormControl(this.getValue('nameEng'), CustomValidators.requiredString),
+      date: new FormControl(this.getValue('date') || new Date(), Validators.required),
       cost: new FormControl(this.getValue('cost'), Validators.required),
-      alergens: new FormControl(this.getValue('alergens'), Validators.required),
+      alergens: new FormControl(this.getValue('alergens')),
     });
   }
 
@@ -83,6 +91,7 @@ export class MealFormComponent {
   onSubmit() {
     if (this.form.valid) {
       const data = this.form.value;
+      data.date = this.form.value.date.toISOString();
       this.pendingRequest = this.isEditAction ? this.service.editObject(this.meal.id, data) : this.service.createObject(data);
       this.pendingRequest.subscribe({
         next: (value) => this.goToDetail(value.id).then(() => this.snackBar.createMessage('fn')),
