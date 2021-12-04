@@ -5,7 +5,7 @@
   </div>
   <div fxFlex="20" fxFlex.sm="100" fxFlex.xs="100" fxLayout="row" fxLayoutAlign="end center">
     <div>{{ meal.cost }}</div>
-    <button mat-icon-button class="item-button" matTooltip="Order" color="accent">
+    <button mat-icon-button class="item-button" *ngIf="displayButton" matTooltip="Order" color="accent">
       <mat-icon>shopping_cart</mat-icon>
     </button>
   </div>
