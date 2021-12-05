@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DetailListItemComponent } from './detail-list-item/detail-list-item.component';
 import { CommonModule } from '@angular/common';
 import { ResourceTableComponent } from './resource-table/resource-table.component';
+import { ResourceDeleteDialogComponent } from './resource-delete-dialog/resource-delete-dialog.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { ResourceTableComponent } from './resource-table/resource-table.componen
     SearchFieldComponent,
     DetailListItemComponent,
     ResourceTableComponent,
+    ResourceDeleteDialogComponent,
   ],
   exports: [
     ContentWrapperComponent,
@@ -32,6 +34,7 @@ import { ResourceTableComponent } from './resource-table/resource-table.componen
     SearchFieldComponent,
     DetailListItemComponent,
     ResourceTableComponent,
+    ResourceDeleteDialogComponent,
   ],
 })
 export class SharedModule {}

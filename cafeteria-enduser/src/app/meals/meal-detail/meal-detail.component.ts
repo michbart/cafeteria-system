@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { ResourceDeleteDialogComponent } from 'src/app/shared/resource-delete-dialog/resource-delete-dialog.component';
+import { ResourceService } from 'src/app/shared/resources/resource-service';
+import { SnackBar } from 'src/app/shared/snack-bar';
 import { ALERGENS } from '../alergens';
 import { Meal } from '../meal';
 
@@ -12,8 +17,16 @@ export class MealDetailComponent implements OnInit {
 
   public meal: Meal;
   public alergens: any[];
+  public pendingRequest: Observable<any>;
+  public resourceType = 'meal';
 
-  constructor(protected route: ActivatedRoute) { }
+  constructor(
+    protected route: ActivatedRoute,
+    protected router: Router,
+    protected dialog: MatDialog,
+    protected resourceService: ResourceService<Meal>,
+    protected snackBar: SnackBar,
+  ) { }
 
   ngOnInit(): void {
     this.route.data.subscribe((data: any) => {
@@ -21,4 +34,26 @@ export class MealDetailComponent implements OnInit {
       this.alergens = ALERGENS.filter(alergen => this.meal.alergens?.includes(alergen.key)).sort((a, b) => a > b ? -1 : 1);
     });
   }
+
+  openDeleteDialog() {
+    const dialogRef = this.dialog.open(ResourceDeleteDialogComponent, {
+      width: '600px',
+      autoFocus: false,
+      data: {
+        resourceName: this.meal.name,
+        resourceType: this.resourceType,
+      },
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) {
+        return;
+      }
+      this.pendingRequest = this.resourceService.deleteObject(this.meal.id);
+      this.pendingRequest.subscribe({
+        next: () => this.router.navigate(['../../'], { relativeTo: this.route }).then(() => this.snackBar.createMessage('bz')),
+        error: (e) => this.snackBar.createMessage('bz'),
+      });
+    });
+  }
+
 }

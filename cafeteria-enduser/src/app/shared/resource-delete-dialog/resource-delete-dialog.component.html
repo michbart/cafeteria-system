@@ -1,0 +1,10 @@
+<h3>{{ dialogTitle }}</h3>
+<mat-dialog-content>
+  <div>
+    Do you really want to delete {{data.resourceType}} "{{data.resourceName}}"?
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end" class="dialog-actions">
+  <button mat-button type="button" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="true">Confirm</button>
+</mat-dialog-actions>
