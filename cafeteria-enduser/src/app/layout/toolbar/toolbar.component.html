@@ -6,6 +6,7 @@
       matTooltip="Users"
       routerLink="/users"
       *ngIf="displayUsersButton"
+      i18n-matTooltip
   >
     <mat-icon>people</mat-icon>
   </a>
@@ -14,6 +15,7 @@
       matTooltip="Menu"
       routerLink="/meals"
       *ngIf="displayMealsButton"
+      i18n-matTooltip
   >
     <mat-icon>restaurant</mat-icon>
   </a>
@@ -22,6 +24,7 @@
         mat-icon-button
         matTooltip="Account balance"
         [routerLink]="userAccountLink"
+        i18n-matTooltip
     >
       <mat-icon>account_balance</mat-icon>
     </a>
@@ -29,6 +32,7 @@
         mat-icon-button
         matTooltip="Logout"
         (click)="logout()"
+        i18n-matTooltip
     >
       <mat-icon>logout</mat-icon>
     </button>
@@ -39,6 +43,7 @@
       matTooltip="Login"
       (click)="login()"
       *ngIf="!loggedUser"
+      i18n
   >
     Login
   </button>

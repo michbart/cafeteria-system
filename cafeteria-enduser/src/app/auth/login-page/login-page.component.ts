@@ -38,11 +38,11 @@ export class LoginPageComponent implements OnInit {
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;
       this.securityProvider.login(username, password)
-        .then(result => {
-          this.snackBar.createMessage('fn');
+        .then(() => {
+          this.snackBar.createMessage($localize `Login successful.`);
           this.router.navigate(['/']);
         })
-        .catch(err => this.snackBar.createMessage(err));
+        .catch(() => this.snackBar.createMessage($localize `Login failed.`));
     }
   }
 

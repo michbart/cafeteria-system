@@ -8,6 +8,11 @@ import { Component } from '@angular/core';
 export class MealListComponent {
 
   public displayedColumns = ['id', 'name', 'date', 'orders'];
-  public columnLabels = ['ID', 'Name', 'Date', 'Orders'];
+  public columnLabels = [
+    'ID',
+    $localize `Name`,
+    $localize `Date`,
+    $localize `Orders`
+  ];
 
 }

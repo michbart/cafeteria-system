@@ -94,10 +94,10 @@ export class MealFormComponent implements OnInit {
       data.date = this.form.value.date.toISOString();
       this.pendingRequest = this.isEditAction ? this.service.editObject(this.meal.id, data) : this.service.createObject(data);
       this.pendingRequest.subscribe({
-        next: (value) => this.goToDetail(value.id).then(() => this.snackBar.createMessage('fn')),
-        error: (e) => {
+        next: (value) => this.goToDetail(value.id).then(() => this.snackBar.createMessage($localize `Meal created successfully.`)),
+        error: () => {
           this.pendingRequest = null;
-          this.snackBar.createMessage('bz');
+          this.snackBar.createMessage($localize `Operation failed.`);
         },
       });
     }

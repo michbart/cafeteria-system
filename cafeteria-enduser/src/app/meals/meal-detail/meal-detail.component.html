@@ -2,7 +2,7 @@
   <div fxLayout="row" fxLayoutGap="16px" fxLayout.sm="column" fxLayout.xs="column">
     <div fxFlex="grow">
       <mat-card>
-        <mat-card-title>Meal detail</mat-card-title>
+        <mat-card-title i18n>Meal detail</mat-card-title>
         <mat-card-content>
           <mat-list class="detail">
             <cafeteria-detail-list-item label="Czech name" [value]="meal.name"></cafeteria-detail-list-item>
@@ -19,7 +19,7 @@
     </div>
     <div fxFlex="grow">
       <mat-card>
-        <mat-card-title>Alergens</mat-card-title>
+        <mat-card-title i18n>Alergens</mat-card-title>
         <mat-card-content>
           <mat-list class="detail">
             <div *ngFor="let alergen of alergens">

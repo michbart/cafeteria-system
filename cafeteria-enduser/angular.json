@@ -54,7 +54,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -77,6 +77,16 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "cs": {
+              "localize": [
+                "cs"
+              ]
+            },
+            "en": {
+              "localize": [
+                "en"
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -89,6 +99,9 @@
             },
             "development": {
               "browserTarget": "cafeteria-enduser:build:development"
+            },
+            "cs" : {
+              "browserTarget": "cafeteria-enduser:build:cs"
             }
           },
           "defaultConfiguration": "development"
@@ -96,7 +109,8 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cafeteria-enduser:build"
+            "browserTarget": "cafeteria-enduser:build",
+            "outputPath": "src/translations"
           }
         },
         "test": {

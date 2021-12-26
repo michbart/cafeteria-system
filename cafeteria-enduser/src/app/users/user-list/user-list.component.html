@@ -1,6 +1,6 @@
 <cafeteria-content-wrapper>
   <mat-card class="cafeteria-card">
-    <mat-card-title>User management</mat-card-title>
+    <mat-card-title i18n>User management</mat-card-title>
     <cafeteria-resource-table
         sortField="username"
         endpointName="users"
@@ -9,7 +9,7 @@
         [valueKeys]="displayedColumns"
         routeLink="/users"
         linkField="username">
-      <button mat-button mat-raised-button routerLink="create">Create user</button>
+      <button mat-button mat-raised-button routerLink="create" i18n>Create user</button>
     </cafeteria-resource-table>
   </mat-card>
 </cafeteria-content-wrapper>

@@ -1,63 +1,63 @@
 <cafeteria-content-wrapper>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-card>
-      <mat-card-title>{{ pageTitle }}</mat-card-title>
+      <mat-card-title i18n>{{ pageTitle }}</mat-card-title>
       <mat-card-content>
         <mat-form-field>
-          <input matInput type="text" placeholder="Given name" maxlength="100" formControlName="givenName" required>
-          <mat-error *ngIf="givenNameField.errors?.required">
+          <input matInput type="text" placeholder="Given name" maxlength="100" formControlName="givenName" required i18n-placeholder>
+          <mat-error *ngIf="givenNameField.errors?.required" i18n>
             Given name cannot be empty.
           </mat-error>
           <mat-hint align="end">{{ givenNameField.value.length }} / 100</mat-hint>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="text" placeholder="Surname" maxlength="100" formControlName="surname" required>
-          <mat-error *ngIf="surnameField.errors?.required">
+          <input matInput type="text" placeholder="Surname" maxlength="100" formControlName="surname" required i18n-placeholder>
+          <mat-error *ngIf="surnameField.errors?.required" i18n>
             Surname cannot be empty.
           </mat-error>
           <mat-hint align="end">{{ surnameField.value.length }} / 100</mat-hint>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="text" placeholder="E-mail" maxlength="100" formControlName="mail" required>
-          <mat-error *ngIf="mailField.errors?.required">
+          <input matInput type="text" placeholder="E-mail" maxlength="100" formControlName="mail" required i18n-placeholder>
+          <mat-error *ngIf="mailField.errors?.required" i18n>
             E-mail address cannot be empty.
           </mat-error>
-          <mat-error *ngIf="mailField.errors?.email">
+          <mat-error *ngIf="mailField.errors?.email" i18n>
             Invalid e-mail address.
           </mat-error>
           <mat-hint align="end">{{ mailField.value.length }} / 100</mat-hint>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="password" placeholder="Password" minlength="6" maxlength="100" formControlName="password" required>
-          <mat-error *ngIf="passwordField.errors?.required">
+          <input matInput type="password" placeholder="Password" minlength="6" maxlength="100" formControlName="password" required i18n-placeholder>
+          <mat-error *ngIf="passwordField.errors?.required" i18n>
             Password cannot be empty.
           </mat-error>
-          <mat-error *ngIf="passwordField.errors?.minlength">
+          <mat-error *ngIf="passwordField.errors?.minlength" i18n>
             Password must must be at least 6 characters long.
           </mat-error>
-          <mat-error *ngIf="passwordField.errors?.pattern">
+          <mat-error *ngIf="passwordField.errors?.pattern" i18n>
             Password must must contain at least 1 capital character, 1 number and 1 special character.
           </mat-error>
           <mat-hint align="end">{{ passwordField.value.length }} / 100</mat-hint>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="password" placeholder="Confirm password" maxlength="100" formControlName="confirmPassword" required>
-          <mat-error *ngIf="confirmPasswordField.errors?.required">
+          <input matInput type="password" placeholder="Confirm password" maxlength="100" formControlName="confirmPassword" required i18n-placeholder>
+          <mat-error *ngIf="confirmPasswordField.errors?.required" i18n>
             Password cannot be empty.
           </mat-error>
           <mat-hint align="end">{{ confirmPasswordField.value.length }} / 100</mat-hint>
         </mat-form-field>
-        <div class="form-field-error mat-error" *ngIf="form.errors?.notSame && (form.touched || form.dirty)">
+        <div class="form-field-error mat-error" *ngIf="form.errors?.notSame && (form.touched || form.dirty)" i18n>
           Password doesn't match.
         </div>
       </mat-card-content>
       <mat-card-actions align="end">
-        <button mat-button mat-raised-button (click)="onCancel()">Cancel</button>
-        <button mat-button mat-raised-button color="primary" type="submit">{{ submitLabel }}</button>
+        <button mat-button mat-raised-button (click)="onCancel()" i18n>Cancel</button>
+        <button mat-button mat-raised-button color="primary" type="submit" i18n>{{ submitLabel }}</button>
       </mat-card-actions>
     </mat-card>
   </form>

@@ -1,44 +1,44 @@
 <cafeteria-content-wrapper>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <mat-card>
-        <mat-card-title>{{ pageTitle }}</mat-card-title>
+        <mat-card-title i18n>{{ pageTitle }}</mat-card-title>
         <mat-card-content>
           <mat-form-field>
-            <input matInput type="text" placeholder="Name" maxlength="255" formControlName="name" required>
-            <mat-error *ngIf="nameField.errors?.required">
+            <input matInput type="text" placeholder="Name" maxlength="255" formControlName="name" required i18n-placeholder>
+            <mat-error *ngIf="nameField.errors?.required" i18n>
               Name cannot be empty.
             </mat-error>
             <mat-hint align="end">{{ nameField.value.length }} / 255</mat-hint>
           </mat-form-field>
   
           <mat-form-field>
-            <input matInput type="text" placeholder="English name" maxlength="255" formControlName="nameEng" required>
-            <mat-error *ngIf="nameEngField.errors?.required">
+            <input matInput type="text" placeholder="English name" maxlength="255" formControlName="nameEng" required i18n-placeholder>
+            <mat-error *ngIf="nameEngField.errors?.required" i18n>
               English name cannot be empty.
             </mat-error>
             <mat-hint align="end">{{ nameEngField.value.length }} / 255</mat-hint>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Choose a date</mat-label>
+            <mat-label i18n>Choose a date</mat-label>
             <input matInput [matDatepicker]="dateInput" formControlName="date" required>
             <mat-datepicker-toggle matSuffix [for]="dateInput"></mat-datepicker-toggle>
             <mat-datepicker #dateInput></mat-datepicker>
-            <mat-error *ngIf="dateField.errors?.required">
+            <mat-error *ngIf="dateField.errors?.required" i18n>
               Date cannot be empty.
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput type="number" placeholder="Cost" formControlName="cost" min="0" required>
+            <input matInput type="number" placeholder="Cost" formControlName="cost" min="0" required i18n-placeholder>
             <div matSuffix>CZK</div>
-            <mat-error *ngIf="costField.errors?.required">
+            <mat-error *ngIf="costField.errors?.required" i18n>
               Cost cannot be empty.
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Alergens</mat-label>
+            <mat-label i18n>Alergens</mat-label>
             <mat-select formControlName="alergens" multiple>
               <mat-option *ngFor="let alergen of alergens" [value]="alergen.key">{{alergen.key}} - {{alergen.value}}</mat-option>
             </mat-select>
@@ -46,8 +46,8 @@
   
         </mat-card-content>
         <mat-card-actions align="end">
-          <button mat-button mat-raised-button (click)="onCancel()">Cancel</button>
-          <button mat-button mat-raised-button color="primary" type="submit">{{ submitLabel }}</button>
+          <button mat-button mat-raised-button (click)="onCancel()" i18n>Cancel</button>
+          <button mat-button mat-raised-button color="primary" type="submit" i18n>{{ submitLabel }}</button>
         </mat-card-actions>
       </mat-card>
     </form>

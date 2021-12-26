@@ -1,0 +1,12 @@
+{
+    "xliffmergeOptions": {
+        "beautifyOutput": true,
+        "i18nFormat": "xlf",
+        "srcDir": "src/translations",
+        "genDir": "src/translations",
+        "defaultLanguage": "en",
+        "languages": [
+          "cs"
+        ]
+    }
+}

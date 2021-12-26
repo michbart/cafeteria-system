@@ -8,6 +8,11 @@ import { Component } from '@angular/core';
 export class UserListComponent {
 
   public displayedColumns = ['username', 'givenName', 'surname', 'roles'];
-  public columnLabels = ['Username', 'Given name', 'Surname', 'Roles'];
+  public columnLabels = [
+    $localize `Username`,
+    $localize `Given name`,
+    $localize `Surname`,
+    $localize `Roles`,
+  ];
 
 }

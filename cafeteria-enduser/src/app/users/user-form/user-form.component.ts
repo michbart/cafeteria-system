@@ -51,14 +51,14 @@ export class UserFormComponent implements OnInit {
   }
 
   get submitLabel() {
-    return this.isEditAction ? 'Save' : 'Create';
+    return this.isEditAction ? $localize `Save` : $localize `Create`;
   }
 
   get pageTitle() {
     if (this.isRegisterAction) {
-      return 'Register';
+      return $localize `Register`;
     }
-    return this.isCreateAction ? 'Create user' : `${this.user.givenName} ${this.user.surname}`;
+    return this.isCreateAction ? $localize `Create user` : `${this.user.givenName} ${this.user.surname}`;
   }
 
   get isCreateAction() {
@@ -107,14 +107,14 @@ export class UserFormComponent implements OnInit {
       this.pendingRequest.subscribe({
         next: (value) => {
           if (this.isRegisterAction) {
-            this.goToMeals().then(() => this.snackBar.createMessage(''));
+            this.goToMeals().then(() => this.snackBar.createMessage($localize `Registration successful.`));
           } else {
-            this.goToDetail(value.id).then(() => this.snackBar.createMessage('fn'));
+            this.goToDetail(value.id).then(() => this.snackBar.createMessage($localize `User created succesfully.`));
           }
         },
-        error: (e) => {
+        error: () => {
           this.pendingRequest = null;
-          this.snackBar.createMessage('bz');
+          this.snackBar.createMessage($localize `Operation failed.`);
         },
       });
     }

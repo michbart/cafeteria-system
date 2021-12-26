@@ -3,25 +3,25 @@
     <div fxLayout="row" fxLayoutGap="16px" fxLayout.sm="column" fxLayout.xs="column">
       <div fxFlex="grow">
         <mat-card>
-          <mat-card-title>User detail</mat-card-title>
+          <mat-card-title i18n>User detail</mat-card-title>
           <mat-card-content>
             <mat-list class="detail">
-              <cafeteria-detail-list-item label="Given name" [value]="user.givenName"></cafeteria-detail-list-item>
+              <cafeteria-detail-list-item label="Given name" [value]="user.givenName" i18n></cafeteria-detail-list-item>
               <cafeteria-detail-list-item label="Surname" [value]="user.surname"></cafeteria-detail-list-item>
               <cafeteria-detail-list-item label="Username" [value]="user.username"></cafeteria-detail-list-item>
               <cafeteria-detail-list-item label="E-mail" [value]="user.mail"></cafeteria-detail-list-item>
             </mat-list>
           </mat-card-content>
           <mat-card-actions align="end">
-            <button mat-button mat-raised-button color="primary" routerLink="../edit">Edit</button>
-            <button mat-button mat-raised-button color="warn" *ngIf="canDeleteUser" (click)="openDeleteDialog()">Delete</button>
+            <button mat-button mat-raised-button color="primary" routerLink="../edit" i18n>Edit</button>
+            <button mat-button mat-raised-button color="warn" *ngIf="canDeleteUser" (click)="openDeleteDialog()" i18n>Delete</button>
           </mat-card-actions>
         </mat-card>
       </div>
 
       <div fxFlex="grow">
         <mat-card>
-          <mat-card-title>Balance</mat-card-title>
+          <mat-card-title i18n>Balance</mat-card-title>
           <mat-card-content>
             <mat-list class="detail">
               <cafeteria-detail-list-item label="Balance" [value]="user.balance"></cafeteria-detail-list-item>
@@ -33,7 +33,7 @@
 
     <div fxFlex="grow">
       <mat-card>
-        <mat-card-title>Order history</mat-card-title>
+        <mat-card-title i18n>Order history</mat-card-title>
         <cafeteria-resource-table
             sortField="date"
             sortDirection="desc"

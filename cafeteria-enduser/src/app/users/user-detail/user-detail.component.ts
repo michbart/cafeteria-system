@@ -18,9 +18,12 @@ export class UserDetailComponent implements OnInit {
   public user!: User;
   public resourceType = 'user';
   public pendingRequest: Observable<any>;
-  // TODO FIXME name field should be based on app language
   public displayedColumns: string[] = ['name', 'date', 'cost'];
-  public columnLabels: string[] = ['Name', 'Date', 'Cost'];
+  public columnLabels: string[] = [
+    $localize `Name`,
+    $localize `Date`,
+    $localize `Cost`
+  ];
 
   constructor(
     protected route: ActivatedRoute,
@@ -57,8 +60,8 @@ export class UserDetailComponent implements OnInit {
       }
       this.pendingRequest = this.resourceService.deleteObject(this.user.id);
       this.pendingRequest.subscribe({
-        next: () => this.router.navigate(['../../'], { relativeTo: this.route }).then(() => this.snackBar.createMessage('bz')),
-        error: (e) => this.snackBar.createMessage('bz'),
+        next: () => this.router.navigate(['../../'], { relativeTo: this.route }).then(() => this.snackBar.createMessage($localize `User deleted successfully.`)),
+        error: () => this.snackBar.createMessage($localize `Operation failed.`),
       });
     });
   }

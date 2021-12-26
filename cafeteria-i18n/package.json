@@ -1,0 +1,9 @@
+{
+    "name": "cafeteria-i18n",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "@angular/core": "^12.2.15",
+        "@ngx-i18nsupport/ngx-i18nsupport": "^1.1.6"
+    }
+}
