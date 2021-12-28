@@ -9,6 +9,7 @@
     <button mat-button routerLink="/about" i18n>About</button>
   </div>
   <div fxLayoutAlign="end" fxFlex fxShow fxHide.lt-md>
+    <cafeteria-locale-selector></cafeteria-locale-selector>
     <a mat-icon-button matTooltip="Users" routerLink="/users" *ngIf="displayUsersButton" i18n-matTooltip>
       <mat-icon>people</mat-icon>
     </a>

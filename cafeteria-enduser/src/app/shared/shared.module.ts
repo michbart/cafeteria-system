@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { ResourceTableComponent } from './resource-table/resource-table.component';
 import { ResourceDeleteDialogComponent } from './resource-delete-dialog/resource-delete-dialog.component';
 import { NavigationToolbarComponent } from './navigation-toolbar/navigation-toolbar.component';
+import { LocaleSelectorComponent } from './locale-selector/locale-selector.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { NavigationToolbarComponent } from './navigation-toolbar/navigation-tool
     ResourceTableComponent,
     ResourceDeleteDialogComponent,
     NavigationToolbarComponent,
+    LocaleSelectorComponent,
   ],
   exports: [
     ContentWrapperComponent,
@@ -38,6 +40,7 @@ import { NavigationToolbarComponent } from './navigation-toolbar/navigation-tool
     ResourceTableComponent,
     ResourceDeleteDialogComponent,
     NavigationToolbarComponent,
+    LocaleSelectorComponent,
   ],
 })
 export class SharedModule {}

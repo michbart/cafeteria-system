@@ -19,6 +19,7 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { TranslatedPaginatorIntl } from './shared/paginator/translated-paginator-intl';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   exports: [
@@ -41,6 +42,7 @@ import { TranslatedPaginatorIntl } from './shared/paginator/translated-paginator
     MatNativeDateModule,
     MatDialogModule,
     MatSidenavModule,
+    MatMenuModule,
   ],
   providers: [
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } },
