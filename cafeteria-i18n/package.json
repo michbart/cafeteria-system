@@ -4,6 +4,7 @@
     "private": true,
     "dependencies": {
         "@angular/core": "^12.2.15",
-        "@ngx-i18nsupport/ngx-i18nsupport": "^1.1.6"
+        "@ngx-i18nsupport/ngx-i18nsupport": "^1.1.6",
+        "rxjs": "~7.4.0"
     }
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import * as dayjs from 'dayjs';
 
 @Component({
   selector: 'cafeteria-detail-list-item',
@@ -8,4 +9,8 @@ import { Component, Input } from '@angular/core';
 export class DetailListItemComponent {
   @Input() label!: string;
   @Input() value!: string;
+
+  isValidDate(): boolean {
+    return dayjs(this.value).isValid();
+  }
 }

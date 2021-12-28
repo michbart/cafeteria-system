@@ -1,5 +1,6 @@
 <cafeteria-content-wrapper>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <cafeteria-navigation-toolbar></cafeteria-navigation-toolbar>
       <mat-card>
         <mat-card-title i18n>{{ pageTitle }}</mat-card-title>
         <mat-card-content>

@@ -10,7 +10,7 @@
     "start-en": "ng serve --configuration=en",
     "pre-build": "npm run lint",
     "build": "ng build --localize",
-    "extract-i18n": "ng extract-i18n && node ..\\cafeteria-i18n\\node_modules\\@ngx-i18nsupport\\ngx-i18nsupport\\src\\xliffmerge\\main.js --profile xliffmerge.json",
+    "extract-i18n": "ng extract-i18n && node ../cafeteria-i18n/node_modules/@ngx-i18nsupport/ngx-i18nsupport/src/xliffmerge/main.js --profile xliffmerge.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -28,6 +28,7 @@
     "@angular/platform-browser-dynamic": "13.1.1",
     "@angular/router": "13.1.1",
     "@types/uuid": "^8.3.3",
+    "dayjs": "^1.10.7",
     "lodash": "^4.17.21",
     "material-icons": "^1.10.1",
     "rxjs": "~7.4.0",

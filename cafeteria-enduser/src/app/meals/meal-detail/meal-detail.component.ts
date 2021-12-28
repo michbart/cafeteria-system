@@ -50,7 +50,8 @@ export class MealDetailComponent implements OnInit {
       }
       this.pendingRequest = this.resourceService.deleteObject(this.meal.id);
       this.pendingRequest.subscribe({
-        next: () => this.router.navigate(['../../'], { relativeTo: this.route }).then(() => this.snackBar.createMessage($localize `Meal deleted successfully.`)),
+        next: () => this.router.navigate(['../../'], { relativeTo: this.route }).then(() =>
+          this.snackBar.createMessage($localize `Meal deleted successfully.`)),
         error: () => this.snackBar.createMessage($localize `Operation failed.`),
       });
     });

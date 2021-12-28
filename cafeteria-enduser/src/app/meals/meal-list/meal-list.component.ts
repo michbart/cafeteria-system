@@ -12,7 +12,7 @@ export class MealListComponent {
     'ID',
     $localize `Name`,
     $localize `Date`,
-    $localize `Orders`
+    $localize `Orders`,
   ];
 
 }

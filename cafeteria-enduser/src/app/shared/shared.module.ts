@@ -11,6 +11,7 @@ import { DetailListItemComponent } from './detail-list-item/detail-list-item.com
 import { CommonModule } from '@angular/common';
 import { ResourceTableComponent } from './resource-table/resource-table.component';
 import { ResourceDeleteDialogComponent } from './resource-delete-dialog/resource-delete-dialog.component';
+import { NavigationToolbarComponent } from './navigation-toolbar/navigation-toolbar.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { ResourceDeleteDialogComponent } from './resource-delete-dialog/resource
     DetailListItemComponent,
     ResourceTableComponent,
     ResourceDeleteDialogComponent,
+    NavigationToolbarComponent,
   ],
   exports: [
     ContentWrapperComponent,
@@ -35,6 +37,7 @@ import { ResourceDeleteDialogComponent } from './resource-delete-dialog/resource
     DetailListItemComponent,
     ResourceTableComponent,
     ResourceDeleteDialogComponent,
+    NavigationToolbarComponent,
   ],
 })
 export class SharedModule {}

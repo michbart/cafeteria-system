@@ -22,7 +22,7 @@ export class UserDetailComponent implements OnInit {
   public columnLabels: string[] = [
     $localize `Name`,
     $localize `Date`,
-    $localize `Cost`
+    $localize `Cost`,
   ];
 
   constructor(
@@ -60,7 +60,8 @@ export class UserDetailComponent implements OnInit {
       }
       this.pendingRequest = this.resourceService.deleteObject(this.user.id);
       this.pendingRequest.subscribe({
-        next: () => this.router.navigate(['../../'], { relativeTo: this.route }).then(() => this.snackBar.createMessage($localize `User deleted successfully.`)),
+        next: () => this.router.navigate(['../../'], { relativeTo: this.route }).then(() =>
+          this.snackBar.createMessage($localize `User deleted successfully.`)),
         error: () => this.snackBar.createMessage($localize `Operation failed.`),
       });
     });

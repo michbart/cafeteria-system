@@ -1,5 +1,52 @@
-<cafeteria-toolbar></cafeteria-toolbar>
-<div>
-  <router-outlet></router-outlet>
-</div>
-<cafeteria-footer></cafeteria-footer>
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()" fxShow fxHide.gt-sm>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1 fxFlex>Cafeteria</h1>
+  <div fxFlex="80" fxShow fxHide.lt-md fxLayoutAlign="center" fxLayoutGap="36px">
+    <button mat-button routerLink="/" i18n>Menu</button>
+    <button mat-button routerLink="/contacts" i18n>Contacts</button>
+    <button mat-button routerLink="/about" i18n>About</button>
+  </div>
+  <div fxLayoutAlign="end" fxFlex fxShow fxHide.lt-md>
+    <a mat-icon-button matTooltip="Users" routerLink="/users" *ngIf="displayUsersButton" i18n-matTooltip>
+      <mat-icon>people</mat-icon>
+    </a>
+    <a mat-icon-button matTooltip="Meals" routerLink="/meals" *ngIf="displayMealsButton" i18n-matTooltip>
+      <mat-icon>restaurant</mat-icon>
+    </a>
+    <a mat-icon-button *ngIf="loggedUser" matTooltip="Account balance" [routerLink]="userAccountLink" i18n-matTooltip>
+      <mat-icon>account_balance</mat-icon>
+    </a>
+    <button mat-icon-button *ngIf="loggedUser" matTooltip="Logout" (click)="logout()" i18n-matTooltip>
+      <mat-icon>logout</mat-icon>
+    </button>
+    <button mat-button matTooltip="Login" (click)="login()" *ngIf="!loggedUser" i18n>
+      Login
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="over" fxLayout="column">
+    <div fxLayout="column">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/" (click)="sidenav.close()" i18n>Menu</a>
+        <a mat-list-item routerLink="/contacts" (click)="sidenav.close()" i18n>Contacts</a>
+        <a mat-list-item routerLink="/about" (click)="sidenav.close()" i18n>About</a>
+        <a mat-list-item routerLink="/users" *ngIf="displayUsersButton" (click)="sidenav.close()" i18n>Users</a>
+        <a mat-list-item routerLink="/meals" *ngIf="displayMealsButton" (click)="sidenav.close()" i18n>Meals</a>
+        <a mat-list-item *ngIf="loggedUser" [routerLink]="userAccountLink" (click)="sidenav.close()" i18n>Account balance</a>
+        <a mat-list-item routerLink="/login" *ngIf="!loggedUser" (click)="sidenav.close()" i18n>Login</a>
+        <a mat-list-item *ngIf="loggedUser" (click)="logout()" i18n>Logout</a>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div ngClass="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<cafeteria-footer [version]="version"></cafeteria-footer>
