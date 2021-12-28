@@ -1,50 +1,50 @@
-<mat-toolbar color="primary">
-  <span>Cafeteria</span>
-  <span class="spacer"></span>
-  <a
-      mat-icon-button
-      matTooltip="Users"
-      routerLink="/users"
-      *ngIf="displayUsersButton"
-      i18n-matTooltip
-  >
-    <mat-icon>people</mat-icon>
-  </a>
-  <a
-      mat-icon-button
-      matTooltip="Menu"
-      routerLink="/meals"
-      *ngIf="displayMealsButton"
-      i18n-matTooltip
-  >
-    <mat-icon>restaurant</mat-icon>
-  </a>
-  <div *ngIf="loggedUser">
-    <a
-        mat-icon-button
-        matTooltip="Account balance"
-        [routerLink]="userAccountLink"
-        i18n-matTooltip
-    >
-      <mat-icon>account_balance</mat-icon>
-    </a>
-    <button
-        mat-icon-button
-        matTooltip="Logout"
-        (click)="logout()"
-        i18n-matTooltip
-    >
-      <mat-icon>logout</mat-icon>
+<div class="example-container">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="sidenav.toggle()" fxShow fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
     </button>
-  </div>
+    <h1 fxFlex >Cafeteria</h1>
+    <div fxFlex="80" fxShow fxHide.lt-md fxLayoutAlign="center" fxLayoutGap="16px">
+      <a routerLink="/" i18n>Menu</a>
+      <a routerLink="/contacts" i18n>Contacts</a>
+      <a routerLink="/about" i18n>About</a>
+    </div>
+    <div fxFlex fxShow fxHide.lt-md>
+      <a mat-icon-button matTooltip="Users" routerLink="/users" *ngIf="displayUsersButton" i18n-matTooltip>
+        <mat-icon>people</mat-icon>
+      </a>
+      <a mat-icon-button matTooltip="Meals" routerLink="/meals" *ngIf="displayMealsButton" i18n-matTooltip>
+        <mat-icon>restaurant</mat-icon>
+      </a>
+      <a mat-icon-button *ngIf="loggedUser" matTooltip="Account balance" [routerLink]="userAccountLink" i18n-matTooltip>
+        <mat-icon>account_balance</mat-icon>
+      </a>
+      <button mat-icon-button *ngIf="loggedUser" matTooltip="Logout" (click)="logout()" i18n-matTooltip>
+        <mat-icon>logout</mat-icon>
+      </button>
+      <button mat-button matTooltip="Login" (click)="login()" *ngIf="!loggedUser" i18n>
+        Login
+      </button>
+    </div>
+  </mat-toolbar>
 
-  <button
-      mat-button
-      matTooltip="Login"
-      (click)="login()"
-      *ngIf="!loggedUser"
-      i18n
-  >
-    Login
-  </button>
-</mat-toolbar>
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #sidenav fxLayout="column" >
+      <div fxLayout="column">
+        <mat-nav-list>
+          <a mat-list-item routerLink="/" (click)="sidenav.close()" i18n>Menu</a>
+          <a mat-list-item routerLink="/contacts" (click)="sidenav.close()" i18n>Contacts</a>
+          <a mat-list-item routerLink="/about" (click)="sidenav.close()" i18n>About</a>
+          <a mat-list-item routerLink="/users" *ngIf="displayUsersButton" (click)="sidenav.close()" i18n>Users</a>
+          <a mat-list-item routerLink="/meals" *ngIf="displayMealsButton" (click)="sidenav.close()" i18n>Meals</a>
+          <a mat-list-item *ngIf="loggedUser" [routerLink]="userAccountLink" (click)="sidenav.close()" i18n>Account balance</a>
+          <a mat-list-item routerLink="/login" *ngIf="!loggedUser" (click)="sidenav.close()" i18n>Login</a>
+          <a mat-list-item *ngIf="loggedUser" (click)="logout()" i18n>Logout</a>
+        </mat-nav-list>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <ng-content></ng-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

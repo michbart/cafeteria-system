@@ -23,7 +23,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2454050363478003966" datatype="html">
@@ -36,6 +36,10 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login-page/login-page.component.html</context>
           <context context-type="linenumber">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/toolbar/toolbar.component.html</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3301086086650990787" datatype="html">
@@ -71,7 +75,11 @@
         <target>Uživatelé</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/toolbar/toolbar.component.html</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/toolbar/toolbar.component.html</context>
+          <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1908285951500318953" datatype="html">
@@ -79,7 +87,31 @@
         <target> Přihlášení </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/toolbar/toolbar.component.html</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5945986349492910662" datatype="html">
+        <source>Contacts</source>
+        <target>Kontakty</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/toolbar/toolbar.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1726363342938046830" datatype="html">
+        <source>About</source>
+        <target>O nás</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/toolbar/toolbar.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8907457721366617264" datatype="html">
+        <source>Meals</source>
+        <target>Správa jídel</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/toolbar/toolbar.component.html</context>
+          <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2298048553971844788" datatype="html">
@@ -87,7 +119,7 @@
         <target>Detail pokrmu</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-detail/meal-detail.component.html</context>
-          <context context-type="linenumber">5</context>
+          <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1542340903695859914" datatype="html">
@@ -95,11 +127,11 @@
         <target>Alergeny</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-detail/meal-detail.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">23</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-form/meal-form.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="323983640620722344" datatype="html">
@@ -147,23 +179,31 @@
         <target>Detail uživatele</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-detail/user-detail.component.html</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7585826646011739428" datatype="html">
         <source>Edit</source>
         <target>Upravit</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/user-detail/user-detail.component.html</context>
+          <context context-type="sourcefile">src/app/meals/meal-detail/meal-detail.component.html</context>
           <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/user-detail/user-detail.component.html</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7022070615528435141" datatype="html">
         <source>Delete</source>
         <target>Smazat</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/users/user-detail/user-detail.component.html</context>
+          <context context-type="sourcefile">src/app/meals/meal-detail/meal-detail.component.html</context>
           <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/users/user-detail/user-detail.component.html</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6888797559367695264" datatype="html">
@@ -171,7 +211,7 @@
         <target>Stav účtu</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-detail/user-detail.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2325667911362356597" datatype="html">
@@ -179,7 +219,7 @@
         <target>Historie objednávek</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-detail/user-detail.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4189788209851772585" datatype="html">
@@ -195,7 +235,7 @@
         <target>Křestní jméno</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">8</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-list/user-list.component.ts</context>
@@ -207,7 +247,7 @@
         <target> Křestní jméno nesmí být prázdné. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">8,10</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2045112409653231798" datatype="html">
@@ -215,7 +255,7 @@
         <target>Příjmení</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">16</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-list/user-list.component.ts</context>
@@ -227,7 +267,7 @@
         <target> Příjmení nesmí být prázdné. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">16,18</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1890300073702152532" datatype="html">
@@ -235,7 +275,7 @@
         <target>E-mailová adresa</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2984604027678139679" datatype="html">
@@ -243,7 +283,7 @@
         <target> E-mailová adresa nesmí být prázdná. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">24,26</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5844364259139280459" datatype="html">
@@ -251,7 +291,7 @@
         <target> Neplatná e-mailová adresa. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">27,29</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4981180251485868742" datatype="html">
@@ -259,11 +299,11 @@
         <target> Heslo nesmí být prázdné. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">35,37</context>
+          <context context-type="linenumber">36</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">49,51</context>
+          <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4143995926288011208" datatype="html">
@@ -271,7 +311,7 @@
         <target> Heslo musí být alespoň 6 znaků dlouhé. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">38,40</context>
+          <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="924606590245073844" datatype="html">
@@ -279,7 +319,7 @@
         <target> Heslo musí obsahovat alespoň 1 velké písmeno, 1 číslici and 1 speciální znak. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">41,43</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3782563238994348625" datatype="html">
@@ -287,7 +327,7 @@
         <target>Potvrzení hesla</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2593137465491900871" datatype="html">
@@ -295,7 +335,7 @@
         <target> Hesla se neshodují. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">54,56</context>
+          <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3768927257183755959" datatype="html">
@@ -363,11 +403,11 @@
         <target><x id="INTERPOLATION" equiv-text="{{ columnLabels[i] }}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-form/meal-form.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">5</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-form/meal-form.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">51</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/resource-delete-dialog/resource-delete-dialog.component.html</context>
@@ -379,11 +419,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">5</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8953033926734869941" datatype="html">
@@ -391,7 +431,7 @@
         <target>Název</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-form/meal-form.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">8</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-list/meal-list.component.ts</context>
@@ -407,7 +447,7 @@
         <target> Název nesmí být prázdný. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-form/meal-form.component.html</context>
-          <context context-type="linenumber">8,10</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6061282449902062132" datatype="html">
@@ -415,7 +455,7 @@
         <target>Anglický název</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-form/meal-form.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7286577059566089893" datatype="html">
@@ -423,7 +463,7 @@
         <target> Anglický název nesmí být prázdný. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-form/meal-form.component.html</context>
-          <context context-type="linenumber">16,18</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6524262610032366385" datatype="html">
@@ -431,7 +471,7 @@
         <target>Vyberte datum</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-form/meal-form.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="61479344362261891" datatype="html">
@@ -439,7 +479,7 @@
         <target> Datum nesmí být prázdný. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-form/meal-form.component.html</context>
-          <context context-type="linenumber">27,29</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2578732368187466916" datatype="html">
@@ -447,7 +487,7 @@
         <target>Cena</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-form/meal-form.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">34</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-detail/user-detail.component.ts</context>
@@ -459,7 +499,7 @@
         <target> Cena nesmí být prázdná. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-form/meal-form.component.html</context>
-          <context context-type="linenumber">35,37</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1693061481483042156" datatype="html">
@@ -475,7 +515,7 @@
         <target>Zrušit</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-form/meal-form.component.html</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">50</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/resource-delete-dialog/resource-delete-dialog.component.html</context>
@@ -483,7 +523,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5896629149284070101" datatype="html">
@@ -507,7 +547,11 @@
         <target>Jídelníček</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/toolbar/toolbar.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/toolbar/toolbar.component.html</context>
+          <context context-type="linenumber">30</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-list/meal-list.component.html</context>
@@ -519,7 +563,11 @@
         <target>Stav účtu</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/toolbar/toolbar.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/toolbar/toolbar.component.html</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3797778920049399855" datatype="html">
@@ -527,7 +575,11 @@
         <target>Odhlášení</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/toolbar/toolbar.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/toolbar/toolbar.component.html</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2857071089688063697" datatype="html">
@@ -556,6 +608,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-list/meal-list.component.ts</context>
           <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5166678584329951353" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon inline=&quot;true&quot;>"/>chevron_left<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon>"/> Back </source>
+        <target><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon inline=&quot;true&quot;>"/>chevron_left<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon>"/> Zpět </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/navigation-toolbar/navigation-toolbar.component.html</context>
+          <context context-type="linenumber">3,5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="9178182467454450952" datatype="html">

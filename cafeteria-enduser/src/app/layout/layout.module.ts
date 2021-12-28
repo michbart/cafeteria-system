@@ -7,6 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { CommonModule } from '@angular/common';
     RouterModule,
     MaterialModule,
     MealsModule,
+    FlexLayoutModule,
   ],
   declarations: [
     ToolbarComponent,

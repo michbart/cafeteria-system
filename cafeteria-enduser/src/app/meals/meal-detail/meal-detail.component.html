@@ -1,4 +1,5 @@
 <cafeteria-content-wrapper>
+  <cafeteria-navigation-toolbar></cafeteria-navigation-toolbar>
   <div fxLayout="row" fxLayoutGap="16px" fxLayout.sm="column" fxLayout.xs="column">
     <div fxFlex="grow">
       <mat-card>
@@ -12,8 +13,8 @@
           </mat-list>
         </mat-card-content>
         <mat-card-actions align="end">
-          <button mat-button mat-raised-button color="primary" routerLink="../edit">Edit</button>
-          <button mat-button mat-raised-button color="warn" (click)="openDeleteDialog()">Delete</button>
+          <button mat-button mat-raised-button color="primary" routerLink="../edit" i18n>Edit</button>
+          <button mat-button mat-raised-button color="warn" (click)="openDeleteDialog()" i18n>Delete</button>
         </mat-card-actions>
       </mat-card>
     </div>
