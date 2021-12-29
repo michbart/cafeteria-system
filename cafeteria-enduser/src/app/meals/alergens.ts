@@ -2,32 +2,32 @@ export const ALERGENS: any[] = [
     {
         key: '1',
         value: 'Lepek',
-        valueEng: '',
+        valueEng: 'Gluten',
     },
     {
         key: '2',
         value: 'Korýši',
-        valueEng: '',
+        valueEng: 'Crustaceans',
     },
     {
         key: '3',
         value: 'Vejce',
-        valueEng: '',
+        valueEng: 'Egg',
     },
     {
         key: '4',
         value: 'Ryby',
-        valueEng: '',
+        valueEng: 'Fish',
     },
     {
         key: '5',
         value: 'Arašídy',
-        valueEng: '',
+        valueEng: 'Peanuts',
     },
     {
         key: '6',
         value: 'Sója',
-        valueEng: '',
+        valueEng: 'Soya',
     },
     {
         key: '7',
@@ -37,36 +37,36 @@ export const ALERGENS: any[] = [
     {
         key: '8',
         value: 'Skořápkové plody',
-        valueEng: '',
+        valueEng: 'Nuts',
     },
     {
         key: '9',
         value: 'Celer',
-        valueEng: '',
+        valueEng: 'Celery',
     },
     {
         key: '10',
         value: 'Hořčice',
-        valueEng: '',
+        valueEng: 'Mustard',
     },
     {
         key: '11',
         value: 'Sezam',
-        valueEng: '',
+        valueEng: 'Sesame',
     },
     {
         key: '12',
         value: 'Oxid siřičitý a siřičitany',
-        valueEng: '',
+        valueEng: 'Sulfur dioxide and sulphites',
     },
     {
         key: '13',
         value: 'Vlčí bob',
-        valueEng: '',
+        valueEng: 'Lupine',
     },
     {
         key: '14',
         value: 'Měkkýši',
-        valueEng: '',
+        valueEng: 'Molluscs',
     },
 ];

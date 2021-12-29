@@ -14,7 +14,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5248717555542428023" datatype="html">
@@ -80,7 +80,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5945986349492910662" datatype="html">
@@ -95,7 +95,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3388568106091342925" datatype="html">
@@ -114,7 +114,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">35</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-list/meal-list.component.html</context>
@@ -125,51 +125,51 @@
         <source>Users</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
-          <context context-type="linenumber">12</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
-          <context context-type="linenumber">37</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8907457721366617264" datatype="html">
-        <source>Meals</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">13</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
           <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2746843369194264850" datatype="html">
-        <source>Account balance</source>
+      <trans-unit id="8907457721366617264" datatype="html">
+        <source>Meals</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">16</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
           <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="2746843369194264850" datatype="html">
+        <source>Account balance</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="3797778920049399855" datatype="html">
         <source>Logout</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">22</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1908285951500318953" datatype="html">
         <source> Login </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
-          <context context-type="linenumber">24,26</context>
+          <context context-type="linenumber">25,27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2298048553971844788" datatype="html">
@@ -264,14 +264,14 @@
         <source>Meal deleted successfully.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-detail/meal-detail.component.ts</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8215210647212959078" datatype="html">
         <source>Operation failed.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-detail/meal-detail.component.ts</context>
-          <context context-type="linenumber">54</context>
+          <context context-type="linenumber">60</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-form/meal-form.component.ts</context>
@@ -279,7 +279,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-detail/user-detail.component.ts</context>
-          <context context-type="linenumber">64</context>
+          <context context-type="linenumber">65</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-form/user-form.component.ts</context>
@@ -389,7 +389,14 @@
         <source>Order</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/meals/meal-item/meal-item.component.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="233979464172595428" datatype="html">
+        <source>Meal has been ordered.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/meals/meal-item/meal-item.component.ts</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2857071089688063697" datatype="html">
@@ -525,7 +532,7 @@
         <source>User deleted successfully.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/users/user-detail/user-detail.component.ts</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4829889613811296053" datatype="html">

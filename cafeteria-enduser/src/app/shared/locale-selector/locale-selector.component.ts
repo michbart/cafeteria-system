@@ -1,4 +1,5 @@
 import { Component, Inject, LOCALE_ID } from '@angular/core';
+import { getCurrentLocale } from '../get-locale';
 
 @Component({
   selector: 'cafeteria-locale-selector',
@@ -11,7 +12,7 @@ export class LocaleSelectorComponent {
   public locales: string[] = ['en', 'cs'];
 
   constructor(@Inject(LOCALE_ID) private localeId: string) {
-    this.selectedLocale = this.locales.find(locale => locale === this.localeId);
+    this.selectedLocale = getCurrentLocale(this.localeId);
   }
 
   changeLocale(localeId: string): void {
