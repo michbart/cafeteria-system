@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  cafeteria-enduser:
+    image: nginx:1.19.6
+    container_name: cafeteria-enduser
+    environment:
+      NGINX_PORT: 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./cafeteria-enduser/docker:/etc/nginx/templates
+      - ./cafeteria-enduser/dist:/cafeteria-enduser

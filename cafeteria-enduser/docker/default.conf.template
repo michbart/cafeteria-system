@@ -1,0 +1,27 @@
+# Browser preferred language detection (does NOT require AcceptLanguageModule)
+map $http_accept_language $accept_language {
+  ~*^cs cs;
+  ~*^en en;
+}
+
+server {
+  listen $NGINX_PORT;
+  server_name localhost;
+  root /cafeteria-enduser;
+
+  # Fallback to default language if no preference defined by browser
+  if ($accept_language ~ "^$") {
+    set $accept_language "cs";
+  }
+
+  # Redirect "/" to Angular app in browser's preferred language
+  rewrite ^/$ /$accept_language permanent;
+
+  # Everything under the Angular app is always redirected to Angular in the correct language
+  location ~ ^/(en|cs) {
+    try_files $uri /$1/index.html?$args;
+  }
+
+  # https://sandro-keil.de/blog/let-nginx-start-if-upstream-host-is-unavailable-or-down/
+  resolver 127.0.0.11 valid=30s;
+}
