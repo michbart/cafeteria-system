@@ -10,3 +10,18 @@ services:
     volumes:
       - ./cafeteria-enduser/docker:/etc/nginx/templates
       - ./cafeteria-enduser/dist:/cafeteria-enduser
+  cafeteria-db:
+    image: postgres:14.2-alpine
+    container_name: cafeteria-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: cafeteria
+      POSTGRES_USER: dummy
+      POSTGRES_PASSWORD: dummy
+      POSTGRES_HOST_AUTH_METHOD: md5
+    volumes:
+    - ./cafeteria-backend/docker/db:/docker-entrypoint-initdb.d
+    - cafeteria-db-data:/var/lib/postgresql/data
+volumes:
+  cafeteria-db-data:

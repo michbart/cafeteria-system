@@ -1,37 +1,34 @@
-import { Types } from 'mongoose';
-import Meal, { MealModel } from '../model/meal';
+import query from '../index';
+import { Meal } from '../model/meal';
+import { v4 as uuid } from 'uuid';
+
+const queries = {
+    create: 'INSERT INTO cafeteria.meal(id,name,nameEng,alergens,cost,date) VALUES($1, $2, $3, $4, $5, $6)',
+    delete: 'DELETE FROM cafeteria.meal WHERE id = $1',
+    update: 'UPDATE cafeteria.meal SET name = $2, nameEng = $3, alergens = $4, cost = $5, date = $6 WHERE id = $1',
+    read: 'SELECT * FROM cafeteria.meal WHERE id = $1',
+    list: ''
+};
 
 export default class MealRepo {
-    public static remove(id: Types.ObjectId): Promise<Meal> {
-        return MealModel.findByIdAndRemove(id).lean<Meal>().exec();
+
+    public static create(meal: any): Promise<any[] | Meal> {
+        return query(queries.create, [uuid(), meal.name, meal.nameEng, meal.alergens, meal.cost, meal.date]).then(res => res.rows[0]);;
     }
 
-    public static findById(id: Types.ObjectId): Promise<Meal> {
-        return MealModel
-            .findById(id)
-            .lean<Meal>()
-            .exec();
+    public static remove(id: string): Promise<any[] | Meal> {
+        return query(queries.delete, id).then(res => res.rows[0]);;
+    }
+
+    public static findById(id: string): Promise<any[] | Meal> {
+        return query(queries.read, id).then(res => res.rows[0]);;
     }
 
     public static find(query: any): Promise<Meal[]> {
-        return MealModel
-            .find({ ...query })
-            .lean<Meal>()
-            .exec();
+        return query(query);
     }
 
-    public static async create(content: string, done: boolean)
-        : Promise<Meal> {
-        const meal = await MealModel.create(<Meal> {
-            content,
-            done
-        });
-        return meal.toObject();
-    }
-
-    public static async update(id: Types.ObjectId, content: string, done: boolean)
-        : Promise<Meal> {
-        const meal = await MealModel.findByIdAndUpdate(id, {content, done}, {new: true});
-        return meal.toObject();
+    public static async update(id: string, meal: any): Promise<any[] | Meal> {
+        return query(queries.update, [id, meal.name, meal.nameEng. meal.alergens, meal.cost, meal.date]).then(res => res.rows[0]);;
     }
 }

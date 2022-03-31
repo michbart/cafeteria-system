@@ -10,11 +10,11 @@ export class ClientService {
   private BASE_URL: string;
 
   constructor(private httpClient: HttpClient) {
-    this.BASE_URL = 'changeme';
+    this.BASE_URL = 'http://localhost/api/v1/';
   }
 
   login(username: string, password: string): Observable<any> {
-    return this.httpClient.get(`${this.BASE_URL}/login`);
+    return this.httpClient.post(`${this.BASE_URL}login`, { username, password });
   }
 
   logout(): Observable<any> {

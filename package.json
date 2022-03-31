@@ -15,5 +15,7 @@
   "bugs": {
     "url": "https://github.com/michbart/cafeteria-system/issues"
   },
-  "homepage": "https://github.com/michbart/cafeteria-system#readme"
+  "homepage": "https://github.com/michbart/cafeteria-system#readme",
+  "dependencies": {
+  }
 }

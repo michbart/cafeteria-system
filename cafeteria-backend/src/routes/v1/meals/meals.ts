@@ -6,49 +6,59 @@ import schema from './schema';
 import MealRepo from '../../../database/repository/meal-repo';
 import { BadRequestError } from '../../../core/api-error';
 import _ from 'lodash';
-import { Types } from 'mongoose';
 
 const router = express.Router();
 
 router.get('/', validator(schema.search, ValidationSource.QUERY),
     asyncHandler(async (req: Request, res, next) => {
-
         const query: any = {};
-        if (req.query.content) query.content = new RegExp(`${req.query.content}.*`);
-
-        const notes = await MealRepo.find(query);
-
-        return new SuccessResponse('success', notes).send(res);
+        if (req.query.content) {
+            query.content = new RegExp(`${req.query.content}.*`);
+        }
+        const meals = await MealRepo.find(query);
+        return new SuccessResponse('success', meals).send(res);
     }));
 
-router.post('/', validator(schema.create, ValidationSource.BODY),
+router.get('/:id', validator(schema.id, ValidationSource.PARAM),
+    asyncHandler(async (req: Request, res, next) => {
+        const meal = await MealRepo.findById(req.params.id);
+        if (!meal) {
+            throw new BadRequestError(`Meal ${req.params.id} not found.`);
+        }
+        return new SuccessResponse('success', meal).send(res);
+    }));
+
+router.post('/', validator(schema.id, ValidationSource.PARAM),
     asyncHandler(async (req: Request, res, next) => {
         const duplicate = await MealRepo.find({content: req.body.content});
-        if (duplicate.length > 0) throw new BadRequestError(`Note "${req.body.content}" already exists.`);
-
-        const createdNote = await MealRepo.create(req.body.content, false);
-        return new CreatedResponse('success', createdNote).send(res);
+        if (duplicate.length > 0) {
+            throw new BadRequestError(`Meal "${req.body.content}" already exists.`);
+        }
+        console.log('body' + JSON.stringify(req.body));
+        const createdMeal = await MealRepo.create(req.body.content);
+        return new CreatedResponse('success', createdMeal).send(res);
     }));
 
 router.put('/:id', validator(schema.update, ValidationSource.BODY), validator(schema.id, ValidationSource.PARAM),
     asyncHandler(async (req: Request, res, next) => {
-        const note = await MealRepo.findById(new Types.ObjectId(req.params.id));
-        if (!note) throw new BadRequestError(`Note with id ${req.params.id} not exist.`);
-
+        const meal = await MealRepo.findById(req.params.id);
+        if (!meal) {
+            throw new BadRequestError(`Meal ${req.params.id} not found.`);
+        }
         const updates = _.pick(req.body, ['content', 'done']);
-        Object.assign(note, updates);
-
-        const updatedNote = await MealRepo.update(new Types.ObjectId(req.params.id), note.content, note.done);
-        return new SuccessResponse('success', updatedNote).send(res);
+        Object.assign(meal, updates);
+        const updatedMeal = await MealRepo.update(req.params.id, meal);
+        return new SuccessResponse('success', updatedMeal).send(res);
     }));
 
 router.delete('/:id', validator(schema.id, ValidationSource.PARAM),
     asyncHandler(async (req: Request, res, next) => {
-        const note = await MealRepo.findById(new Types.ObjectId(req.params.id));
-        if (!note) throw new BadRequestError(`Note with id ${req.params.id} not exist.`);
-
-        const removedNote = await MealRepo.remove(new Types.ObjectId(req.params.id));
-        return new SuccessResponse('success', removedNote).send(res);
+        const meal = await MealRepo.findById(req.params.id);
+        if (!meal) {
+            throw new BadRequestError(`Meal ${req.params.id} not found.`);
+        }
+        const removedMeal = await MealRepo.remove(req.params.id);
+        return new SuccessResponse('success', removedMeal).send(res);
     }));
 
 export default router;

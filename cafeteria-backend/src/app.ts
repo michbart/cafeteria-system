@@ -3,12 +3,12 @@ import Logger from './core/logger';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import { corsUrl, environment } from './config';
-import './database'; // initialize database
+import './database';
 import { NotFoundError, ApiError, InternalError } from './core/api-error';
 import routesV1 from './routes/v1';
-import path from 'path';
 
 process.on('uncaughtException', e => {
+    console.log('err ' + e)
     Logger.error(e);
 });
 

@@ -3,14 +3,21 @@ import { JoiObjectId } from '../../../helpers/validator';
 
 export default {
     create: Joi.object().keys({
-        content: Joi.string().required().min(1).max(100),
+        name: Joi.string().required().min(1).max(255),
+        nameEng: Joi.string().required().min(1).max(255),
+        alergens: Joi.array().optional(),
+        cost: Joi.string().required().min(1).max(255),
+        date: Joi.string().required().min(1).max(255),
     }),
     id: Joi.object().keys({
         id: JoiObjectId().required()
     }),
     update: Joi.object().keys({
-        content: Joi.string().optional().min(1).max(100),
-        done: Joi.boolean().optional(),
+        name: Joi.string().optional().min(1).max(255),
+        nameEng: Joi.string().optional().min(1).max(255),
+        alergens: Joi.array().optional(),
+        cost: Joi.string().optional().min(1).max(255),
+        date: Joi.string().optional().min(1).max(255),
     }),
     search: Joi.object().keys({
         content: Joi.string().optional().min(1).max(50),

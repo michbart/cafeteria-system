@@ -6,7 +6,6 @@ import schema from './schema';
 import UserRepo from '../../../database/repository/user-repo';
 import { BadRequestError } from '../../../core/api-error';
 import _ from 'lodash';
-import { Types } from 'mongoose';
 
 const router = express.Router();
 
@@ -16,39 +15,52 @@ router.get('/', validator(schema.search, ValidationSource.QUERY),
         const query: any = {};
         if (req.query.content) query.content = new RegExp(`${req.query.content}.*`);
 
-        const notes = await UserRepo.find(query);
+        const users = await UserRepo.find(query);
 
-        return new SuccessResponse('success', notes).send(res);
+        return new SuccessResponse('success', users).send(res);
+    }));
+
+router.get('/:id', validator(schema.id, ValidationSource.PARAM),
+    asyncHandler(async (req: Request, res, next) => {
+        const user = await UserRepo.findById(req.params.id);
+        if (!user) {
+            throw new BadRequestError(`User ${req.params.id} not found.`);
+        }
+        return new SuccessResponse('success', user).send(res);
     }));
 
 router.post('/', validator(schema.create, ValidationSource.BODY),
     asyncHandler(async (req: Request, res, next) => {
-        const duplicate = await UserRepo.find({content: req.body.content});
-        if (duplicate.length > 0) throw new BadRequestError(`Note "${req.body.content}" already exists.`);
 
-        const createdNote = await UserRepo.create(req.body.content, false);
-        return new CreatedResponse('success', createdNote).send(res);
+        // const duplicate = await UserRepo.find({content: req.body});
+        // if (duplicate.length > 0) {
+        //     throw new BadRequestError(`User "${req.body.content}" already exists.`);
+        // }
+        const createdUser = await UserRepo.create(req.body);
+        return new CreatedResponse('success', createdUser).send(res);
     }));
 
 router.put('/:id', validator(schema.update, ValidationSource.BODY), validator(schema.id, ValidationSource.PARAM),
     asyncHandler(async (req: Request, res, next) => {
-        const note = await UserRepo.findById(new Types.ObjectId(req.params.id));
-        if (!note) throw new BadRequestError(`Note with id ${req.params.id} not exist.`);
-
+        const user = await UserRepo.findById(req.params.id);
+        if (!user) {
+            throw new BadRequestError(`User ${req.params.id} not found.`);
+        }
         const updates = _.pick(req.body, ['content', 'done']);
-        Object.assign(note, updates);
+        Object.assign(user, updates);
 
-        const updatedNote = await UserRepo.update(new Types.ObjectId(req.params.id), note.content, note.done);
-        return new SuccessResponse('success', updatedNote).send(res);
+        const updatedUser = await UserRepo.update(req.params.id, user);
+        return new SuccessResponse('success', updatedUser).send(res);
     }));
 
 router.delete('/:id', validator(schema.id, ValidationSource.PARAM),
     asyncHandler(async (req: Request, res, next) => {
-        const note = await UserRepo.findById(new Types.ObjectId(req.params.id));
-        if (!note) throw new BadRequestError(`Note with id ${req.params.id} not exist.`);
-
-        const removedNote = await UserRepo.remove(new Types.ObjectId(req.params.id));
-        return new SuccessResponse('success', removedNote).send(res);
+        const user = await UserRepo.findById(req.params.id);
+        if (!user) {
+            throw new BadRequestError(`User ${req.params.id} not found.`);
+        }
+        const removedUser = await UserRepo.remove(req.params.id);
+        return new SuccessResponse('success', removedUser).send(res);
     }));
 
 export default router;
