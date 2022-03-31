@@ -20,6 +20,7 @@ export default {
         date: Joi.string().optional().min(1).max(255),
     }),
     search: Joi.object().keys({
-        content: Joi.string().optional().min(1).max(50),
+        sortDirection: Joi.string().optional().min(1).max(50),
+        sortField: Joi.string().optional().min(1).max(50),
     })
 };

@@ -7,28 +7,29 @@ const queries = {
     delete: 'DELETE FROM cafeteria.meal WHERE id = $1',
     update: 'UPDATE cafeteria.meal SET name = $2, nameEng = $3, alergens = $4, cost = $5, date = $6 WHERE id = $1',
     read: 'SELECT * FROM cafeteria.meal WHERE id = $1',
-    list: ''
+    list: 'SELECT * FROM cafeteria.meal ORDER BY $1 '
 };
 
 export default class MealRepo {
 
     public static create(meal: any): Promise<any[] | Meal> {
-        return query(queries.create, [uuid(), meal.name, meal.nameEng, meal.alergens, meal.cost, meal.date]).then(res => res.rows[0]);;
+        return query(queries.create, [uuid(), meal.name, meal.nameEng, meal.alergens, meal.cost, meal.date]).then(res => res.rows[0]);
     }
 
     public static remove(id: string): Promise<any[] | Meal> {
-        return query(queries.delete, id).then(res => res.rows[0]);;
+        return query(queries.delete, id).then(res => res.rows[0]);
     }
 
     public static findById(id: string): Promise<any[] | Meal> {
-        return query(queries.read, id).then(res => res.rows[0]);;
+        return query(queries.read, id).then(res => res.rows[0]);
     }
 
-    public static find(query: any): Promise<Meal[]> {
-        return query(query);
+    public static find(params: any): Promise<Meal[]> {
+        console.log(params);
+        return query(queries.list, [params.sortField]).then(res => res.rows[0]);
     }
 
     public static async update(id: string, meal: any): Promise<any[] | Meal> {
-        return query(queries.update, [id, meal.name, meal.nameEng. meal.alergens, meal.cost, meal.date]).then(res => res.rows[0]);;
+        return query(queries.update, [id, meal.name, meal.nameEng. meal.alergens, meal.cost, meal.date]).then(res => res.rows[0]);
     }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { HttpService } from '../core/http/http.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,12 +9,14 @@ export class ClientService {
 
   private BASE_URL: string;
 
-  constructor(private httpClient: HttpClient) {
-    this.BASE_URL = 'http://localhost/api/v1/';
+
+
+  constructor(private httpService: HttpService) {
+    this.BASE_URL = 'http://localhost:3000/api/v1/';
   }
 
   login(username: string, password: string): Observable<any> {
-    return this.httpClient.post(`${this.BASE_URL}login`, { username, password });
+    return this.httpService.post('login', { username, password });
   }
 
   logout(): Observable<any> {
@@ -22,23 +24,23 @@ export class ClientService {
   }
 
   create(path: string, data: any): Observable<any> {
-    return this.httpClient.post(this.BASE_URL + path, data);
+    return this.httpService.post(path, data);
   }
 
   read(path: string): Observable<any> {
-    return this.httpClient.get(this.BASE_URL + path);
+    return this.httpService.get(path);
   }
 
   query(path: string, params: any): Observable<any> {
-    return this.httpClient.post(this.BASE_URL + path, params);
+    return this.httpService.get(path, { params: params });
   }
 
   patch(path: string, data: any): Observable<any> {
-    return this.httpClient.get(this.BASE_URL + path, data);
+    return this.httpService.get(path, data);
   }
 
   delete(path: string): Observable<any> {
-    return this.httpClient.delete(this.BASE_URL + path);
+    return this.httpService.delete(path);
   }
 
 }

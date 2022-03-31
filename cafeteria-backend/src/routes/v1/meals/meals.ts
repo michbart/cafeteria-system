@@ -11,11 +11,7 @@ const router = express.Router();
 
 router.get('/', validator(schema.search, ValidationSource.QUERY),
     asyncHandler(async (req: Request, res, next) => {
-        const query: any = {};
-        if (req.query.content) {
-            query.content = new RegExp(`${req.query.content}.*`);
-        }
-        const meals = await MealRepo.find(query);
+        const meals = await MealRepo.find(req.query);
         return new SuccessResponse('success', meals).send(res);
     }));
 

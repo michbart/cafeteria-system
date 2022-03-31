@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "lint": "ng lint cafeteria-enduser",
-    "prestart-cs": "npm run lint",
-    "start-cs": "ng serve --configuration=cs --aot --proxy-config proxy.conf.js",
+
+    "start-cs": "ng serve --configuration=cs --proxy-config proxy.conf.js",
     "prestart-en": "npm run lint",
     "start-en": "ng serve --configuration=en --aot --proxy-config proxy.conf.js",
     "prestart-production": "npm run lint",

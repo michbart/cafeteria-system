@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { Resource } from './resource';
 import { Injectable } from '@angular/core';
-import { ClientServiceMock } from '../client-service.mock';
+import { ClientService } from '../client-service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +10,7 @@ export class ResourceService<T extends Resource> {
 
   private endpoint: string;
 
-  constructor(protected clientService: ClientServiceMock) { }
+  constructor(protected clientService: ClientService) { }
 
   set endpointName(endpoint: string) {
     this.endpoint = endpoint;

@@ -5,6 +5,8 @@
 export const environment = {
   production: false,
   version: '0.0.0',
+  apiKey: '123456',
+  serverUrl: 'http://localhost:3000/api/v1/'
 };
 
 /*

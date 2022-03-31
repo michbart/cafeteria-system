@@ -9,6 +9,7 @@ import { MealsModule } from './meals/meals.module';
 import { LayoutModule } from './layout/layout.module';
 import { UsersModule } from './users/users.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     MealsModule,
     UsersModule,
     HttpClientModule,
+    CoreModule,
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },

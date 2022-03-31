@@ -21,7 +21,7 @@ export class MealPageComponent implements OnInit {
 
   private groupByDate(): object {
     return this.service.listObjects({ sortField: 'date', sortDirection: 'asc' }).subscribe(result =>
-      this.allMeals = result.reduce((meals, meal) => {
+      this.allMeals = result.data.reduce((meals, meal) => {
           meals[meal.date] = meals[meal.date] || [];
           meals[meal.date].push(meal);
           return meals;
