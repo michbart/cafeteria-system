@@ -2,7 +2,7 @@
   <mat-card-title>{{ date | date: 'dd.MM.yyyy' }}</mat-card-title>
   <mat-card-content class="meals">
     <div *ngFor="let meal of meals; last as last" class="wrapper">
-      <cafeteria-meal-item [meal]="meal"></cafeteria-meal-item>
+      <cafeteria-meal-item [meal]="meal" [displayButton]="displayButton"></cafeteria-meal-item>
     </div>
   </mat-card-content>
 </mat-card>

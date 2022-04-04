@@ -11,10 +11,11 @@ import { environment } from '../../../environments/environment';
 export class ApiInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (!/^(http|https):/i.test(request.url)) {
+      console.log(request)
       request = request.clone({
         url: environment.serverUrl + request.url,
         headers: new HttpHeaders({
-          'x-api-key': environment.apiKey,
+          'x-api-key': environment.apiKey
         }),
       });
     }

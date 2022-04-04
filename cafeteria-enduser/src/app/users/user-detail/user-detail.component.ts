@@ -7,6 +7,7 @@ import { ResourceDeleteDialogComponent } from 'src/app/shared/resource-delete-di
 import { MatDialog } from '@angular/material/dialog';
 import { ResourceService } from 'src/app/shared/resources/resource-service';
 import { SnackBar } from 'src/app/shared/snack-bar';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'cafeteria-user-detail',
@@ -24,6 +25,7 @@ export class UserDetailComponent implements OnInit {
     $localize `Date`,
     $localize `Cost`,
   ];
+  public currency: string = environment.currency;
 
   constructor(
     protected route: ActivatedRoute,
@@ -40,7 +42,7 @@ export class UserDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.data.subscribe((data: any) => {
-      this.user = data.user;
+      this.user = data.user.data;
     });
   }
 

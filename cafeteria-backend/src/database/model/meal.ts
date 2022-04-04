@@ -4,6 +4,6 @@ export interface Meal extends Resource {
     name: string;
     nameEng: string;
     alergens?: string[];
-    cost: string;
+    cost: number;
     date: string;
 }

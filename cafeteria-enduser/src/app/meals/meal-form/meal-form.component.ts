@@ -8,6 +8,8 @@ import { SnackBar } from 'src/app/shared/snack-bar';
 import { User } from 'src/app/users/user';
 import { Meal } from '../meal';
 import { ALERGENS } from '../alergens';
+import * as dayjs from 'dayjs';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'cafeteria-meal-form',
@@ -21,6 +23,7 @@ export class MealFormComponent implements OnInit {
   public form!: FormGroup;
   public pendingRequest: Observable<any>;
   public alergens: any[];
+  public currency: string = environment.currency;
 
   private action: 'create' | 'edit';
 
@@ -72,13 +75,13 @@ export class MealFormComponent implements OnInit {
   ngOnInit(): void {
     this.alergens = ALERGENS;
     this.route.data.subscribe((data: any) => {
-      this.meal = data.meal;
+      this.meal = data.meal?.data;
       this.action = data.action;
     });
     this.form = new FormGroup({
       name: new FormControl(this.getValue('name'), CustomValidators.requiredString),
       nameEng: new FormControl(this.getValue('nameEng'), CustomValidators.requiredString),
-      date: new FormControl(this.getValue('date') || new Date(), Validators.required),
+      date: new FormControl(dayjs(this.getValue('date')).toDate() || new Date(), Validators.required),
       cost: new FormControl(this.getValue('cost'), Validators.required),
       alergens: new FormControl(this.getValue('alergens')),
     });

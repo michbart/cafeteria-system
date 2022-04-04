@@ -8,7 +8,7 @@ const client = new Pool({
     password: db.password,
     port: parseInt(db.port),
 });
-console.log('foobar')
+
 export default function query(text: any, params: any) {
     return client.query(text, params).then(value => value);
-};
+}

@@ -9,7 +9,7 @@
             <cafeteria-detail-list-item label="Czech name" [value]="meal.name" i18n-label></cafeteria-detail-list-item>
             <cafeteria-detail-list-item label="English name" [value]="meal.nameEng" i18n-label></cafeteria-detail-list-item>
             <cafeteria-detail-list-item label="Date" [value]="meal.date" i18n-label></cafeteria-detail-list-item>
-            <cafeteria-detail-list-item label="Cost" [value]="meal.cost" i18n-label></cafeteria-detail-list-item>
+            <cafeteria-detail-list-item label="Cost" [value]="meal.cost + ' ' + currency" i18n-label></cafeteria-detail-list-item>
           </mat-list>
         </mat-card-content>
         <mat-card-actions align="end">

@@ -1,7 +1,7 @@
 import express, { Request } from 'express';
 import { ForbiddenError } from '../core/api-error';
-import validator, { ValidationSource } from '../helpers/validator';
-import asyncHandler from '../helpers/asyncHandler';
+import validator, { ValidationSource } from '../utils/validator';
+import asyncHandler from '../utils/asyncHandler';
 import { apiKey } from '../config';
 import schema from './schema';
 

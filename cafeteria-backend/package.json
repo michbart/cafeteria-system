@@ -2,12 +2,14 @@
   "name": "cafeteria-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "start": "npm run build && npm run serve",
     "serve": "node -r dotenv/config build/server.js",
+    "prebuild": "npm run tslint",
     "build": "npm run build-ts",
-    "build-ts": "tsc"
+    "build-ts": "tsc",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +31,7 @@
     "@types/uuid": "^8.3.4",
     "body-parser": "^1.19.2",
     "cors": "^2.8.5",
+    "dayjs": "^1.11.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "lodash": "^4.17.21",

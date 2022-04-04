@@ -1,17 +1,23 @@
 import express, { Request } from 'express';
-import asyncHandler from '../../../helpers/asyncHandler';
+import _ from 'lodash';
+import asyncHandler from '../../../utils/asyncHandler';
 import { CreatedResponse, SuccessResponse } from '../../../core/api-response';
-import validator, { ValidationSource } from '../../../helpers/validator';
+import validator, { ValidationSource } from '../../../utils/validator';
 import schema from './schema';
 import MealRepo from '../../../database/repository/meal-repo';
 import { BadRequestError } from '../../../core/api-error';
-import _ from 'lodash';
+import mapper from '../../../utils/mapper';
 
 const router = express.Router();
+
+const mappings: any = {
+    nameeng: 'nameEng'
+};
 
 router.get('/', validator(schema.search, ValidationSource.QUERY),
     asyncHandler(async (req: Request, res, next) => {
         const meals = await MealRepo.find(req.query);
+        meals.forEach(meal => mapper(mappings, meal));
         return new SuccessResponse('success', meals).send(res);
     }));
 
@@ -21,7 +27,7 @@ router.get('/:id', validator(schema.id, ValidationSource.PARAM),
         if (!meal) {
             throw new BadRequestError(`Meal ${req.params.id} not found.`);
         }
-        return new SuccessResponse('success', meal).send(res);
+        return new SuccessResponse('success', mapper(mappings, meal)).send(res);
     }));
 
 router.post('/', validator(schema.id, ValidationSource.PARAM),
@@ -32,16 +38,16 @@ router.post('/', validator(schema.id, ValidationSource.PARAM),
         }
         console.log('body' + JSON.stringify(req.body));
         const createdMeal = await MealRepo.create(req.body.content);
-        return new CreatedResponse('success', createdMeal).send(res);
+        return new CreatedResponse('success', mapper(mappings, createdMeal)).send(res);
     }));
 
-router.put('/:id', validator(schema.update, ValidationSource.BODY), validator(schema.id, ValidationSource.PARAM),
+router.patch('/:id', validator(schema.update, ValidationSource.BODY), validator(schema.id, ValidationSource.PARAM),
     asyncHandler(async (req: Request, res, next) => {
         const meal = await MealRepo.findById(req.params.id);
         if (!meal) {
             throw new BadRequestError(`Meal ${req.params.id} not found.`);
         }
-        const updates = _.pick(req.body, ['content', 'done']);
+        const updates = _.pick(req.body, ['name', 'nameEng', 'date', 'cost', 'alergens']);
         Object.assign(meal, updates);
         const updatedMeal = await MealRepo.update(req.params.id, meal);
         return new SuccessResponse('success', updatedMeal).send(res);

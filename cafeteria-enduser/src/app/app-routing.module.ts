@@ -21,8 +21,10 @@ const routes: Routes = [
   {
     path: 'users',
     canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     canLoad: [AuthGuard],
     loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
+    runGuardsAndResolvers: 'always',
     data: {
       roles: [ROLES.USER_ADMIN],
     },
@@ -32,6 +34,7 @@ const routes: Routes = [
     canActivate: [AuthGuard, RoleGuard],
     canLoad: [AuthGuard, RoleGuard],
     loadChildren: () => import('./meals/meals.module').then(m => m.MealsModule),
+    runGuardsAndResolvers: 'always',
     data: {
       roles: [ROLES.COOK, ROLES.USER_ADMIN], // imho admin by mel mit taky pristup
     },

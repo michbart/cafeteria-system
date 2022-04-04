@@ -1,174 +1,36 @@
-INSERT INTO user(id, username, password, givenName, surname, balance, mail) VALUES('1', 'doe', 'doe', 'John', 'Doe', '200 CZK', 'doe@example.com');
-INSERT INTO user(id, username, password, givenName, surname, balance, mail) VALUES('2', 'srsen', 'srsen', 'Pepa', 'Sršeň', '300 CZK', 'srsen@example.com');
-INSERT INTO user(id, username, password, givenName, surname, balance, mail) VALUES('3', 'novak', 'novak', 'Jan', 'Novák', '200 CZK', 'novak@example.com');
-INSERT INTO user(id, username, password, givenName, surname, balance, mail) VALUES('4', 'vareckova', 'vareckova', 'Miluše', 'Vařečková', '["ROLES.COOK"]', '250 CZK', 'vareckova@example.com',);
-INSERT INTO user(id, username, password, givenName, surname, balance, mail) VALUES('5', 'kopr', 'kopr' 'David' 'Kopr', '["ROLES.COOK"]', '1000 CZK', 'kopr@example.com');
-INSERT INTO user(id, username, password, givenName, surname, balance, mail) VALUES('6', 'admin', 'admin', 'Tomáš', 'Administrátorský', '["ROLES.USER_ADMIN", "ROLES.COOK"]', '2000 CZK', 'administratorsky@example.com');
+INSERT INTO cafeteria.user(id, username, password, givenName, surname, balance, mail) VALUES('1', 'doe', '8cde6c206de91faac5f3f2b469e764788411aa5f3470d0b8e46be4ab3e0eae6b67ae6c5cb50da8a242bd5832d700bf5889fba92082478a41354d1d8b0ca0a1c6:ebfc68947446f93f38a8a048737d8f8b', 'John', 'Doe', 200, 'doe@example.com');
+INSERT INTO cafeteria.user(id, username, password, givenName, surname, balance, mail) VALUES('2', 'srsen', '1695e948224ef055b512a0713bce1347b512cd13521b2e05ce3dd66540227262f60725d009a91d7fe9d54c205efe79c967851cd835d5281074d53ddf729ece6b:027bcf1194a2691bcfade651fe034049', 'Pepa', 'Sršeň', 300, 'srsen@example.com');
+INSERT INTO cafeteria.user(id, username, password, givenName, surname, balance, mail) VALUES('3', 'novak', 'c5098a954c5b071fb06cf64d161ed1dcaae5d146d3370cf284f46c3f77e2672d4c07415a519a0255493fd3846c64c8bf7dbb0637b4a6b965e6ed030cb01ab069:258f8f34d918459d939c5bd989067742', 'Jan', 'Novák', 200, 'novak@example.com');
+INSERT INTO cafeteria.user(id, username, password, givenName, surname, roles, balance, mail) VALUES('4', 'vareckova', '527d9a4790dc27393048328e8ee962f216d8c6add88c8bd9b6a367d4272c943195034017c3ed222f6f2cf80ab294ee374ff5642f1fee307d5a7ee7a38aac94f1:3e3f2928dce2d077b1311830bfd1975b', 'Miluše', 'Vařečková', '["ROLES.COOK"]', 250, 'vareckova@example.com');
+INSERT INTO cafeteria.user(id, username, password, givenName, surname, roles, balance, mail) VALUES('5', 'kopr', 'e6de0ca4643f17a5883e46381faf7dc511b59946ed52deb1f4b2e85b48a446d7df95300b418fdab1d2cb1db2c2e22ae422e71c25f03e74d673163bc0c65feebb:b5533c97b3e3df223d89e0522e4461f3', 'David', 'Kopr', '["ROLES.COOK"]', 1000, 'kopr@example.com');
+INSERT INTO cafeteria.user(id, username, password, givenName, surname, roles, balance, mail) VALUES('6', 'admin', '0112ac8d28fa7e96538dfd00b3d94e2780c3c0f47c31b415a4ce9c3680314f6d68c9ffed17c50507854c58c9ce0bb7e711fa2bc85acbfc38d6e656b3ddf678f8:2592b23d48a9783335c626c5c6acffef', 'Tomáš', 'Administrátorský', '["ROLES.USER_ADMIN", "ROLES.COOK"]', 2000, 'administratorsky@example.com');
 
-INSERT INTO order(id, userId, mealId) VALUES('1', '1', '1');
-INSERT INTO order(id, userId, mealId) VALUES('2', '1', '4');
-INSERT INTO order(id, userId, mealId) VALUES('3', '1', '7');
-INSERT INTO order(id, userId, mealId) VALUES('4', '1', '10');
-INSERT INTO order(id, userId, mealId) VALUES('5', '1', '13');
-INSERT INTO order(id, userId, mealId) VALUES('6', '1', '16');
-INSERT INTO order(id, userId, mealId) VALUES('7', '1', '19');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('1','Kuřecí řízek', 'Schnitzel', 120, '2022-11-12T00:00:00.000Z', '["1", "3", "4"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('2', 'Vepřové kostky na hříbkách s knedlíkem', 'Pork cubes on porcini mushrooms with dumplings', 130, '2022-11-12T00:00:00.000Z', '["1", "5"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('3','Cikánský guláš s knedlíkem','Gypsy stew with dumplings',110, '2022-11-12T00:00:00.000Z', '["1"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('4','Vepřová po selsku bramborový knedlík špenát','Pork potato dumpling spinach', 105, '2022-11-13T00:00:00.000Z', '["1", "3"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('5','Smažený sýr hranolky tatarská omáčka','Fried cheese fries tartar sauce', 100, '2022-11-13T00:00:00.000Z', '["8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('6','Kuřecí plátek šťouchané brambory','Chicken slice with mashed potatoes',115,'2022-11-13T00:00:00.000Z','["4", "6", "8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('7','Koprová omáčka s vejci a hovězím masem knedlík','Dill sauce with eggs and beef dumpling',130,'2022-11-14T00:00:00.000Z','["4", "6", "8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('8','Vepřové výpečky bramborový knedlík červené zelí','Pork pastry potato dumpling red cabbage',120,'2022-11-14T00:00:00.000Z','["4", "6", "8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('9','Indické kuřecí maso s rýží','Indian chicken with rice',105,'2022-11-14T00:00:00.000Z','["4", "6", "8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('10','Smažený hermelín brambory tatarská omáčka','Fried Camembert Potato Tartar Sauce',115,'2022-11-15T00:00:00.000Z','["4", "6", "8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('11','Kovbojské fazole s klobásou a okurkou,chléb','Cowboy beans with sausage and cucumber, bread',120,'2022-11-15T00:00:00.000Z','["4", "6", "8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('12','Plněné bramborové knedlíky uzeninou zelí','Stuffed potato dumplings with cabbage sausage',135,'2022-11-15T00:00:00.000Z','["4", "6", "8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('13','Drůbeží rizoto se sýrem ','Poultry risotto with cheese',100,'2022-11-16T00:00:00.000Z','["4", "6", "8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('14','Vepřový steak se smetanovým pórkem na slanině hranolky','Pork steak with creamy leek on bacon fries',150,'2022-11-16T00:00:00.000Z','["4", "6", "8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('15','Pizza','Pizza',145,'2022-11-16T00:00:00.000Z','["4", "6", "8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('16','Přírodní sekaný karbanátek,rajčatová salsa,vařené brambory','Natural chopped meatball, tomato salsa, boiled potatoes',105,'2022-11-17T00:00:00.000Z','["4", "6", "8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('17','Boloňské lasagne se sýrem a mletým masem','Lasagna bolognese with cheese and minced meat',100,'2022-11-17T00:00:00.000Z','["4", "6", "8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('18','XXL Smažený řízek bramborová kaše okurka','XXL Fried schnitzel mashed cucumber',160,'2022-11-17T00:00:00.000Z','["4", "6", "8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('19','Kuřecí plátek šťouchané brambory','Chicken slice with mashed potatoes',115,'2022-11-18T00:00:00.000Z','["4", "6", "8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('20','Krůtí nudličky se zeleninou a rýží','Turkey strips with vegetables and rice',110,'2022-11-18T00:00:00.000Z','["4", "6", "8"]');
+INSERT INTO cafeteria.meal(id, name, nameEng, cost, date, alergens) VALUES('21','Alpské borůvkové knedlíky s vanilkovým krémem sypané mákem','Alpine blueberry dumplings with vanilla cream sprinkled with poppy seeds',115,'2022-11-18T00:00:00.000Z','["3", "2", "5"]');
 
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES('1','Kuřecí řízek', 'Schnitzel', '120 CZK', NOW(), "['1', '3', '4']");
-INSERT INTO meal(id, name, nameEng, cost, date) VALUES('2', 'Vepřové kostky na hříbkách s knedlíkem', 'Pork cubes on porcini mushrooms with dumplings', '99 CZK', NOW());
-INSERT INTO meal(id, name, nameEng, cost, date) VALUES('3','Cikánský guláš s knedlíkem','Gypsy stew with dumplings','110 CZK', NOW());
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-INSERT INTO meal(id, name, nameEng, cost, date, alergens) VALUES();
-
-
-
-  {
-    id: 
-  },
-  {
-    id: 
-    date: new Date('2021-11-12').toISOString(),
-  },
-  {
-    id: '4',
-    name: 'Vepřová po selsku bramborový knedlík špenát',
-    nameEng: 'Pork potato dumpling spinach',
-    cost: '105 CZK',
-    date: new Date('2021-11-13').toISOString(),
-  },
-  {
-    id: '5',
-    name: 'Smažený sýr hranolky tatarská omáčka',
-    nameEng: 'Fried cheese fries tartar sauce',
-    cost: '100 CZK',
-    date: new Date('2021-11-13').toISOString(),
-  },
-  {
-    id: '6',
-    name: 'Kuřecí plátek šťouchané brambory',
-    nameEng: 'Chicken slice with mashed potatoes',
-    cost: '115 CZK',
-    date: new Date('2021-11-13').toISOString(),
-  },
-  {
-    id: '7',
-    name: 'Koprová omáčka s vejci a hovězím masem knedlík ',
-    nameEng: 'Dill sauce with eggs and beef dumpling',
-    cost: '130 CZK',
-    date: new Date('2021-11-14').toISOString(),
-  },
-  {
-    id: '8',
-    name: 'Vepřové výpečky bramborový knedlík červené zelí ',
-    nameEng: 'Pork pastry potato dumpling red cabbage',
-    cost: '120 CZK',
-    date: new Date('2021-11-14').toISOString(),
-  },
-  {
-    id: '9',
-    name: 'Indické kuřecí maso s rýží ',
-    nameEng: 'Indian chicken with rice',
-    cost: '105 CZK',
-    date: new Date('2021-11-14').toISOString(),
-  },
-  {
-    id: '10',
-    name: 'Smažený hermelín brambory tatarská omáčka ',
-    nameEng: 'Fried Camembert Potato Tartar Sauce',
-    cost: '115 CZK',
-    date: new Date('2021-11-15').toISOString(),
-  },
-  {
-    id: '11',
-    name: 'Kovbojské fazole s klobásou a okurkou,chléb ',
-    nameEng: 'Cowboy beans with sausage and cucumber, bread',
-    cost: '99 CZK',
-    date: new Date('2021-11-15').toISOString(),
-  },
-  {
-    id: '12',
-    name: 'Plněné bramborové knedlíky uzeninou zelí ',
-    nameEng: 'Stuffed potato dumplings with cabbage sausage',
-    cost: '135 CZK',
-    date: new Date('2021-11-15').toISOString(),
-  },
-  {
-    id: '13',
-    name: 'Drůbeží rizoto se sýrem ',
-    nameEng: 'Poultry risotto with cheese',
-    cost: '100 CZK',
-    date: new Date('2021-11-16').toISOString(),
-  },
-  {
-    id: '14',
-    name: 'Vepřový steak se smetanovým pórkem na slanině hranolky ',
-    nameEng: 'Pork steak with creamy leek on bacon fries',
-    cost: '150 CZK',
-    date: new Date('2021-11-16').toISOString(),
-  },
-  {
-    id: '15',
-    name: 'Pizza',
-    nameEng: 'Pizza',
-    cost: '145 CZK',
-    date: new Date('2021-11-16').toISOString(),
-  },
-  {
-    id: '16',
-    name: 'Přírodní sekaný karbanátek,rajčatová salsa,vařené brambory ',
-    nameEng: 'Natural chopped meatball, tomato salsa, boiled potatoes',
-    cost: '105 CZK',
-    date: new Date('2021-11-17').toISOString(),
-  },
-  {
-    id: '17',
-    name: 'Boloňské lasagne se sýrem a mletým masem ',
-    nameEng: 'Lasagna bolognese with cheese and minced meat',
-    cost: '100 CZK',
-    date: new Date('2021-11-17').toISOString(),
-  },
-  {
-    id: '18',
-    name: 'XXL Smažený řízek bramborová kaše okurka',
-    nameEng: 'XXL Fried schnitzel mashed cucumber',
-    cost: '160 CZK',
-    date: new Date('2021-11-17').toISOString(),
-  },
-  {
-    id: '19',
-    name: 'Kuřecí plátek šťouchané brambory',
-    nameEng: 'Chicken slice with mashed potatoes',
-    cost: '115 CZK',
-    date: new Date('2021-11-18').toISOString(),
-  },
-  {
-    id: '20',
-    name: 'Krůtí nudličky se zeleninou a rýží ',
-    nameEng: 'Turkey strips with vegetables and rice',
-    cost: '110 CZK',
-    date: new Date('2021-11-18').toISOString(),
-  },
-  {
-    id: '21',
-    name: 'Alpské borůvkové knedlíky s vanilkovým krémem sypané mákem',
-    nameEng: 'Alpine blueberry dumplings with vanilla cream sprinkled with poppy seeds',
-    cost: '115 CZK',
-    date: new Date('2021-11-18').toISOString(),
-    alergens: ['3', '2', '5'],
-  },
-];
+INSERT INTO cafeteria.order(id, userId, mealId) VALUES('1', '1', '1');
+INSERT INTO cafeteria.order(id, userId, mealId) VALUES('2', '1', '4');
+INSERT INTO cafeteria.order(id, userId, mealId) VALUES('3', '2', '7');
+INSERT INTO cafeteria.order(id, userId, mealId) VALUES('4', '1', '10');
+INSERT INTO cafeteria.order(id, userId, mealId) VALUES('5', '7', '13');
+INSERT INTO cafeteria.order(id, userId, mealId) VALUES('6', '1', '16');
+INSERT INTO cafeteria.order(id, userId, mealId) VALUES('7', '1', '19');

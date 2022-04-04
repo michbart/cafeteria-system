@@ -10,5 +10,6 @@ export class MealCardComponent {
 
   @Input() meals!: Meal[];
   @Input() date!: string;
+  @Input() displayButton!: boolean;
 
 }

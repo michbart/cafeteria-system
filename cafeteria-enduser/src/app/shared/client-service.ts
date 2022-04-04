@@ -1,5 +1,6 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpService } from '../core/http/http.service';
 
 @Injectable({
@@ -7,20 +8,18 @@ import { HttpService } from '../core/http/http.service';
 })
 export class ClientService {
 
-  private BASE_URL: string;
-
-
-
-  constructor(private httpService: HttpService) {
-    this.BASE_URL = 'http://localhost:3000/api/v1/';
-  }
+  constructor(private httpService: HttpService) { }
 
   login(username: string, password: string): Observable<any> {
-    return this.httpService.post('login', { username, password });
+    return this.httpService.post('auth/authenticate', { token: btoa(JSON.stringify({ username, password })) });
   }
 
-  logout(): Observable<any> {
-    return of(null);
+  verify(userId: string, token: string): Observable<any> {
+    return this.httpService.post('auth/verify', { userId, token });
+  }
+
+  logout(userId: string, token: string): Observable<any> {
+    return this.httpService.post('auth/logout', { userId, token });
   }
 
   create(path: string, data: any): Observable<any> {
@@ -32,11 +31,11 @@ export class ClientService {
   }
 
   query(path: string, params: any): Observable<any> {
-    return this.httpService.get(path, { params: params });
+    return this.httpService.get(path, { params });
   }
 
   patch(path: string, data: any): Observable<any> {
-    return this.httpService.get(path, data);
+    return this.httpService.patch(path, data);
   }
 
   delete(path: string): Observable<any> {

@@ -1,6 +1,6 @@
-import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort, MatSortable } from '@angular/material/sort';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Resource } from '../resources/resource';
 import { ResourceService } from '../resources/resource-service';
@@ -10,10 +10,7 @@ import { ResourceService } from '../resources/resource-service';
   templateUrl: './resource-table.component.html',
   styleUrls: ['./resource-table.component.scss'],
 })
-export class ResourceTableComponent<T extends Resource> implements AfterViewInit, OnInit {
-
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+export class ResourceTableComponent<T extends Resource> implements OnInit {
 
   @Input() columnLabels: string[];
   @Input() displayedColumns: string[];
@@ -28,21 +25,31 @@ export class ResourceTableComponent<T extends Resource> implements AfterViewInit
   public resourceDataSource: MatTableDataSource<T>;
   public itemCount!: number;
 
-  constructor(protected resourceService: ResourceService<T>, private changeDetector: ChangeDetectorRef) { }
+  constructor(protected resourceService: ResourceService<T>) { }
+
+  @ViewChild(MatPaginator, {static: false})
+  set paginator(value: MatPaginator) {
+    if (this.resourceDataSource){
+      this.resourceDataSource.paginator = value;
+    }
+  }
+
+  @ViewChild(MatSort, {static: false})
+  set sort(value: MatSort) {
+    if (this.resourceDataSource){
+      this.resourceDataSource.sort = value;
+    }
+  }
 
   ngOnInit(): void {
     this.resourceService.endpointName = this.endpointName;
-    this.resourceService.listObjects(this.options).subscribe((response: any) => {
-      this.itemCount = response?.length;
-      this.resourceDataSource = new MatTableDataSource<T>(response);
+    this.resourceService.listObjects({
+        ...this.options,
+        sortDirection: this.sortDirection,
+        sortField: this.sortField }).subscribe((response: any) => {
+      this.itemCount = response?.data?.length;
+      this.resourceDataSource = new MatTableDataSource<T>(response?.data);
     });
-  }
-
-  ngAfterViewInit(): void {
-    this.resourceDataSource.paginator = this.paginator;
-    this.resourceDataSource.sort = this.sort;
-    this.sort.sort(({ id: this.sortField, start: this.sortDirection ||'asc' }) as MatSortable);
-    this.changeDetector.detectChanges();
   }
 
   applyFilter(event: Event) {

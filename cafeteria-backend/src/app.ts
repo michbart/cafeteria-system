@@ -1,14 +1,14 @@
 import express, { Request, Response, NextFunction } from 'express';
-import Logger from './core/logger';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import Logger from './core/logger';
 import { corsUrl, environment } from './config';
 import './database';
 import { NotFoundError, ApiError, InternalError } from './core/api-error';
 import routesV1 from './routes/v1';
 
 process.on('uncaughtException', e => {
-    console.log('err ' + e)
+    console.log('err ' + e);
     Logger.error(e);
 });
 
@@ -33,7 +33,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
             Logger.error(err);
             return res.status(500).send(err.message);
         }
-        console.log(err.message)
         ApiError.handle(new InternalError(), res);
     }
 });

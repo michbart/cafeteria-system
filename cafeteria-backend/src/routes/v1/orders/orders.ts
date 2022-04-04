@@ -1,21 +1,17 @@
 import express, { Request } from 'express';
-import asyncHandler from '../../../helpers/asyncHandler';
+import _ from 'lodash';
+import asyncHandler from '../../../utils/asyncHandler';
 import { CreatedResponse, SuccessResponse } from '../../../core/api-response';
-import validator, { ValidationSource } from '../../../helpers/validator';
+import validator, { ValidationSource } from '../../../utils/validator';
 import schema from './schema';
 import OrderRepo from '../../../database/repository/order-repo';
 import { BadRequestError } from '../../../core/api-error';
-import _ from 'lodash';
 
 const router = express.Router();
 
 router.get('/', validator(schema.search, ValidationSource.QUERY),
     asyncHandler(async (req: Request, res, next) => {
-        const query: any = {};
-        if (req.query.content) {
-            query.content = new RegExp(`${req.query.content}.*`);
-        }
-        const orders = await OrderRepo.find(query);
+        const orders = await OrderRepo.find(req.query);
 
         return new SuccessResponse('success', orders).send(res);
     }));

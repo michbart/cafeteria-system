@@ -9,7 +9,7 @@ CREATE TABLE cafeteria.user (
     surname varchar(255) NOT NULL,
     roles JSONB,
     password varchar(255) NOT NULL,
-    balance varchar(255) NOT NULL,
+    balance integer NOT NULL,
     mail varchar(255) NOT NULL
 );
 
@@ -24,6 +24,13 @@ CREATE TABLE cafeteria.meal (
     name varchar(255) NOT NULL,
     nameEng varchar(255) NOT NULL,
     alergens JSONB,
-    cost varchar(255) NOT NULL,
+    cost integer NOT NULL,
     date varchar(255) NOT NULL
+);
+
+CREATE TABLE cafeteria.auth (
+    id varchar(255) PRIMARY KEY,
+    userid varchar(255) NOT NULL,
+    "token" varchar(255) NOT NULL,
+    createdon varchar(255) NOT NULL
 );

@@ -16,13 +16,13 @@
     <a mat-icon-button matTooltip="Meals" routerLink="/meals" *ngIf="displayMealsButton" i18n-matTooltip>
       <mat-icon>restaurant</mat-icon>
     </a>
-    <a mat-icon-button *ngIf="loggedUser" matTooltip="Account balance" [routerLink]="userAccountLink" i18n-matTooltip>
+    <a mat-icon-button *ngIf="!!loggedUser.id" matTooltip="Account balance" [routerLink]="userAccountLink" i18n-matTooltip>
       <mat-icon>account_balance</mat-icon>
     </a>
-    <button mat-icon-button *ngIf="loggedUser" matTooltip="Logout" (click)="logout()" i18n-matTooltip>
+    <button mat-icon-button *ngIf="!!loggedUser.id" matTooltip="Logout" (click)="logout()" i18n-matTooltip>
       <mat-icon>logout</mat-icon>
     </button>
-    <button mat-button matTooltip="Login" (click)="login()" *ngIf="!loggedUser" i18n>
+    <button mat-button matTooltip="Login" (click)="login()" *ngIf="!loggedUser.id" i18n>
       Login
     </button>
   </div>

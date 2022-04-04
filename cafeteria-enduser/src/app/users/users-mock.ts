@@ -8,7 +8,7 @@ export const USERS: User[] = [
     password: 'doe',
     givenName: 'John',
     surname: 'Doe',
-    balance: '200 CZK',
+    balance: 200,
     mail: 'doe@example.com',
   },
   {
@@ -17,7 +17,7 @@ export const USERS: User[] = [
     password: 'srsen',
     givenName: 'Pepa',
     surname: 'Sršeň',
-    balance: '300 CZK',
+    balance: 300,
     mail: 'srsen@example.com',
   },
   {
@@ -26,7 +26,7 @@ export const USERS: User[] = [
     password: 'novak',
     givenName: 'Jan',
     surname: 'Novák',
-    balance: '200 CZK',
+    balance: 200,
     mail: 'novak@example.com',
   },
   {
@@ -36,7 +36,7 @@ export const USERS: User[] = [
     givenName: 'Miluše',
     surname: 'Vařečková',
     roles: [ROLES.COOK],
-    balance: '250 CZK',
+    balance: 250,
     mail: 'vareckova@example.com',
   },
   {
@@ -46,7 +46,7 @@ export const USERS: User[] = [
     givenName: 'David',
     surname: 'Kopr',
     roles: [ROLES.COOK],
-    balance: '1000 CZK',
+    balance: 1000,
     mail: 'kopr@example.com',
   },
   {
@@ -56,7 +56,7 @@ export const USERS: User[] = [
     givenName: 'Tomáš',
     surname: 'Administrátorský',
     roles: [ROLES.USER_ADMIN, ROLES.COOK],
-    balance: '2000 CZK',
+    balance: 2000,
     mail: 'administratorsky@example.com',
   },
 ];

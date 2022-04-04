@@ -36,7 +36,7 @@ export class CacheInterceptor implements HttpInterceptor {
       const cachedData = this.forceUpdate ? null : this.httpCacheService.getCacheData(request.urlWithParams);
       if (cachedData !== null) {
         // Create new response to avoid side-effects
-        subscriber.next(new HttpResponse(cachedData as Object));
+        subscriber.next(new HttpResponse(cachedData as any));
         subscriber.complete();
       } else {
         next.handle(request).subscribe(

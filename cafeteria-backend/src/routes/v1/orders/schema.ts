@@ -1,5 +1,4 @@
 import Joi from '@hapi/joi';
-import { JoiObjectId } from '../../../helpers/validator';
 
 export default {
     create: Joi.object().keys({
@@ -7,13 +6,15 @@ export default {
         mealId: Joi.string().required().min(1).max(255),
     }),
     id: Joi.object().keys({
-        id: JoiObjectId().required()
+        id: Joi.string().required().min(1).max(255)
     }),
     update: Joi.object().keys({
         content: Joi.string().optional().min(1).max(100),
         done: Joi.boolean().optional(),
     }),
     search: Joi.object().keys({
-        content: Joi.string().optional().min(1).max(50),
+        sortDirection: Joi.string().optional().min(1).max(50),
+        sortField: Joi.string().optional().min(1).max(50),
+        id: Joi.string().optional().min(1).max(255),
     })
 };

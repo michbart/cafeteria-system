@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SecurityProvider } from 'src/app/auth/security-provider';
 import { ResourceService } from 'src/app/shared/resources/resource-service';
 import { Meal } from '../meal';
 
@@ -10,9 +11,11 @@ import { Meal } from '../meal';
 export class MealPageComponent implements OnInit {
 
   public allMeals: object;
+  public displayButton: boolean;
 
-  constructor(protected service: ResourceService<Meal>) {
+  constructor(protected service: ResourceService<Meal>, private securityProvider: SecurityProvider) {
     service.endpointName = 'meals';
+    this.securityProvider.isAuthenticated().then(response => this.displayButton = response.data.authenticated);
   }
 
   ngOnInit(): void {

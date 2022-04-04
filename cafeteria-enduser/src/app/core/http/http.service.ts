@@ -32,7 +32,7 @@ export class HttpService extends HttpClient {
   constructor(
     private httpHandler: HttpHandler,
     private injector: Injector,
-    @Optional() @Inject(HTTP_DYNAMIC_INTERCEPTORS) private interceptors: HttpInterceptor[] = []
+    @Optional() @Inject(HTTP_DYNAMIC_INTERCEPTORS) private interceptors: HttpInterceptor[] = [],
   ) {
     super(httpHandler);
 
@@ -59,16 +59,16 @@ export class HttpService extends HttpClient {
   request(method?: any, url?: any, options?: any): any {
     const handler = this.interceptors.reduceRight(
       (next, interceptor) => new HttpInterceptorHandler(next, interceptor),
-      this.httpHandler
+      this.httpHandler,
     );
     return new HttpClient(handler).request(method, url, options);
   }
 
-  private removeInterceptor(interceptorType: Function): HttpService {
+  private removeInterceptor(interceptorType: any): HttpService {
     return new HttpService(
       this.httpHandler,
       this.injector,
-      this.interceptors.filter(i => !(i instanceof interceptorType))
+      this.interceptors.filter(i => !(i instanceof interceptorType)),
     );
   }
 

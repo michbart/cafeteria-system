@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../auth/auth.guard';
 import { RoleGuard } from '../auth/role.guard';
 import { ROLES } from '../auth/roles';
 import { ResourceResolver } from '../shared/resources/resource-resolver';
@@ -15,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'meals',
-    canActivate: [RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
     component: MealListComponent,
     data: {
       roles: [ROLES.COOK, ROLES.USER_ADMIN],
@@ -23,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: ':id/detail',
-    canActivate: [RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
     component: MealDetailComponent,
     runGuardsAndResolvers: 'always',
     resolve: { meal: ResourceResolver },
@@ -33,7 +34,7 @@ const routes: Routes = [
   },
   {
     path: ':id/edit',
-    canActivate: [RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
     component: MealFormComponent,
     resolve: { meal: ResourceResolver },
     data: {
@@ -43,7 +44,7 @@ const routes: Routes = [
   },
   {
     path: 'create',
-    canActivate: [RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
     component: MealFormComponent,
     resolve: { meal: ResourceResolver },
     data: {

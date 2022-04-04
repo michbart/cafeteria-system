@@ -8,6 +8,7 @@ import { SnackBar } from 'src/app/shared/snack-bar';
 import { ALERGENS } from '../alergens';
 import { Meal } from '../meal';
 import { getCurrentLocale } from 'src/app/shared/get-locale';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'cafeteria-meal-detail',
@@ -21,6 +22,7 @@ export class MealDetailComponent implements OnInit {
   public pendingRequest: Observable<any>;
   public resourceType = 'meal';
   public currentLocale: string;
+  public currency: string = environment.currency;
 
   constructor(
     protected route: ActivatedRoute,
@@ -28,14 +30,14 @@ export class MealDetailComponent implements OnInit {
     protected dialog: MatDialog,
     protected resourceService: ResourceService<Meal>,
     protected snackBar: SnackBar,
-    @Inject(LOCALE_ID) private localeId: string
+    @Inject(LOCALE_ID) private localeId: string,
     ) {
       this.currentLocale = getCurrentLocale(this.localeId);
     }
 
   ngOnInit(): void {
     this.route.data.subscribe((data: any) => {
-      this.meal = data.meal;
+      this.meal = data.meal.data;
       this.alergens = ALERGENS.filter(alergen => this.meal.alergens?.includes(alergen.key)).sort((a, b) => a > b ? -1 : 1);
     });
   }

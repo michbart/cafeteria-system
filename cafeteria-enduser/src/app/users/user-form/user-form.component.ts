@@ -75,7 +75,7 @@ export class UserFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.data.subscribe((data: any) => {
-      this.user = data.user;
+      this.user = data.user?.data;
       this.action = data.action;
     });
     this.form = new FormGroup({
@@ -103,13 +103,16 @@ export class UserFormComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       const data = this.form.value;
+      data.username = data.surname.toLowerCase();
+      data.balance = 0;
+      delete data.confirmPassword;
       this.pendingRequest = this.isEditAction ? this.service.editObject(this.user.id, data) : this.service.createObject(data);
       this.pendingRequest.subscribe({
         next: (value) => {
           if (this.isRegisterAction) {
             this.goToMeals().then(() => this.snackBar.createMessage($localize `Registration successful.`));
           } else {
-            this.goToDetail(value.id).then(() => this.snackBar.createMessage($localize `User created succesfully.`));
+            this.goToDetail(value.data.id).then(() => this.snackBar.createMessage($localize `User created succesfully.`));
           }
         },
         error: () => {
