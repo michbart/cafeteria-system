@@ -7,7 +7,7 @@ import { hash } from '../../utils/password';
 const queries = {
     create: 'INSERT INTO cafeteria.user(id,username,givenName,surname,roles,password,balance,mail) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id',
     delete: 'DELETE FROM cafeteria.user WHERE id = $1',
-    update: 'UPDATE cafeteria.user SET username = $2, givenName = $3, surname = $4, roles = $5, password = $6, balance = $7, mail = $8 WHERE id = $1 RETURNING id',
+    update: 'UPDATE cafeteria.user SET givenName = $2, surname = $3, roles = $4, password = $5, mail = $6 WHERE id = $1 RETURNING id',
     read: 'SELECT * FROM cafeteria.user WHERE id = $1',
     list: 'SELECT * FROM cafeteria.user ORDER BY'
 };
@@ -43,7 +43,7 @@ export default class UserRepo {
     }
 
     public static async update(id: string, user: any): Promise<any[] | User> {
-        return query(queries.update, [id, user.username, user.givenName,
-                user.surname, JSON.stringify(user.roles), user.password, user.balance, user.mail]).then(res => res.rows[0]);
+        return query(queries.update, [id, user.givenName,
+                user.surname, JSON.stringify(user.roles), user.password, user.mail]).then(res => res.rows[0]);
     }
 }

@@ -11,7 +11,7 @@ const router = express.Router();
 router.post('/authenticate', validator(schema.authenticate, ValidationSource.BODY),
     asyncHandler(async (req: Request, res, next) => {
         try {
-            const credentials = JSON.parse(atob(req.body.token));
+            const credentials = JSON.parse(Buffer.from(req.body.token, 'base64').toString());
             const meals = await AuthRepo.authenticate(credentials);
             return new SuccessResponse('success', meals).send(res);
         } catch (e) {

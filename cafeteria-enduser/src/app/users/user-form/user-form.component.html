@@ -31,6 +31,17 @@
           <mat-hint align="end">{{ mailField.value.length }} / 100</mat-hint>
         </mat-form-field>
 
+        <mat-form-field *ngIf="accessChecker.canAccessUsers()">
+          <mat-label i18n>Roles</mat-label>
+          <mat-select formControlName="roles" multiple>
+            <mat-option *ngFor="let role of roles" [value]="role.value">{{ role.value }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-checkbox *ngIf="!isRegisterAction" class="form-input" color="primary" formControlName="changePassword" i18n>
+          Change password
+        </mat-checkbox>
+
         <mat-form-field>
           <input matInput type="password" placeholder="Password" minlength="6" maxlength="100" formControlName="password" required i18n-placeholder>
           <mat-error *ngIf="passwordField.errors?.required" i18n>

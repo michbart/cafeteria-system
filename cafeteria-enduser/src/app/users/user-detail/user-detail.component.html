@@ -11,6 +11,7 @@
               <cafeteria-detail-list-item label="Surname" [value]="user.surname" i18n-label></cafeteria-detail-list-item>
               <cafeteria-detail-list-item label="Username" [value]="user.username" i18n-label></cafeteria-detail-list-item>
               <cafeteria-detail-list-item label="E-mail" [value]="user.mail" i18n-label></cafeteria-detail-list-item>
+              <cafeteria-detail-list-item label="Roles" [value]="user.roles?.join(', ')" i18n-label></cafeteria-detail-list-item>
             </mat-list>
           </mat-card-content>
           <mat-card-actions align="end">

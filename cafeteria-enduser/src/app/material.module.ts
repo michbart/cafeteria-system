@@ -20,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { TranslatedPaginatorIntl } from './shared/paginator/translated-paginator-intl';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   exports: [
@@ -43,6 +44,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatDialogModule,
     MatSidenavModule,
     MatMenuModule,
+    MatCheckboxModule,
   ],
   providers: [
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } },

@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ResourceService } from 'src/app/shared/resources/resource-service';
 import { SnackBar } from 'src/app/shared/snack-bar';
 import { environment } from '../../../environments/environment';
+import { SecurityProvider } from 'src/app/auth/security-provider';
 
 @Component({
   selector: 'cafeteria-user-detail',
@@ -34,10 +35,11 @@ export class UserDetailComponent implements OnInit {
     protected dialog: MatDialog,
     protected resourceService: ResourceService<User>,
     protected snackBar: SnackBar,
+    protected securityProvider: SecurityProvider,
   ) { }
 
   get canDeleteUser(): boolean {
-    return this.accessChecker.canAccessUsers();
+    return this.accessChecker.canAccessUsers() && this.user.id !== this.securityProvider.getContext().id;
   }
 
   ngOnInit(): void {

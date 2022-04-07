@@ -36,7 +36,6 @@ router.post('/', validator(schema.id, ValidationSource.PARAM),
         if (duplicate.length > 0) {
             throw new BadRequestError(`Meal "${req.body.content}" already exists.`);
         }
-        console.log('body' + JSON.stringify(req.body));
         const createdMeal = await MealRepo.create(req.body.content);
         return new CreatedResponse('success', mapper(mappings, createdMeal)).send(res);
     }));

@@ -24,4 +24,9 @@ server {
 
   # https://sandro-keil.de/blog/let-nginx-start-if-upstream-host-is-unavailable-or-down/
   resolver 127.0.0.11 valid=30s;
+
+  location /api/v1 {
+    set $upstream 172.20.0.3:3000;
+    proxy_pass http://$upstream;
+  }
 }

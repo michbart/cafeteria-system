@@ -33,6 +33,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
             Logger.error(err);
             return res.status(500).send(err.message);
         }
+        console.log(err);
         ApiError.handle(new InternalError(), res);
     }
 });

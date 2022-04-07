@@ -6,6 +6,8 @@ import { ResourceService } from 'src/app/shared/resources/resource-service';
 import { SnackBar } from 'src/app/shared/snack-bar';
 import { Observable } from 'rxjs';
 import { CustomValidators } from 'src/app/shared/custom-validators';
+import { ROLES } from 'src/app/auth/roles';
+import { AccessChecker } from 'src/app/auth/access-checker';
 
 @Component({
   selector: 'cafeteria-user-form',
@@ -18,6 +20,7 @@ export class UserFormComponent implements OnInit {
 
   public form!: FormGroup;
   public pendingRequest: Observable<any>;
+  public roles: any[];
 
   private action: 'create' | 'edit' | 'register';
 
@@ -26,6 +29,7 @@ export class UserFormComponent implements OnInit {
     protected router: Router,
     protected service: ResourceService<User>,
     protected snackBar: SnackBar,
+    public accessChecker: AccessChecker,
   ) {
     this.service.endpointName = 'users';
   }
@@ -48,6 +52,14 @@ export class UserFormComponent implements OnInit {
 
   get confirmPasswordField(): AbstractControl {
     return this.form.get('confirmPassword');
+  }
+
+  get rolesField(): AbstractControl {
+    return this.form.get('roles');
+  }
+
+  get changePasswordField(): AbstractControl {
+    return this.form.get('changePassword');
   }
 
   get submitLabel() {
@@ -74,6 +86,7 @@ export class UserFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.roles = Object.entries(ROLES).map(([key, value]) => ({ key, value }));
     this.route.data.subscribe((data: any) => {
       this.user = data.user?.data;
       this.action = data.action;
@@ -82,15 +95,18 @@ export class UserFormComponent implements OnInit {
       givenName: new FormControl(this.getValue('givenName'), CustomValidators.requiredString),
       surname: new FormControl(this.getValue('surname'), CustomValidators.requiredString),
       mail: new FormControl(this.getValue('mail'), Validators.compose([Validators.email, CustomValidators.requiredString])),
-      password: new FormControl('', Validators.compose([
+      password: new FormControl({ value: '', disabled: !this.isRegisterAction }, Validators.compose([
         CustomValidators.requiredString,
         Validators.pattern(/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).*/),
         Validators.minLength(6),
       ])),
-      confirmPassword: new FormControl('', CustomValidators.requiredString),
+      confirmPassword: new FormControl({ value: '', disabled: !this.isRegisterAction }, CustomValidators.requiredString),
+      roles: new FormControl(this.getValue('roles')),
+      changePassword: new FormControl(false),
     }, {
       validators: CustomValidators.checkPasswords,
     });
+    this.changePasswordField.valueChanges.subscribe(this.onChangePasswordChange.bind(this));
   }
 
   onCancel() {
@@ -106,6 +122,10 @@ export class UserFormComponent implements OnInit {
       data.username = data.surname.toLowerCase();
       data.balance = 0;
       delete data.confirmPassword;
+      if (!data.changePassword) {
+        delete data.password;
+      }
+      delete data.changePassword;
       this.pendingRequest = this.isEditAction ? this.service.editObject(this.user.id, data) : this.service.createObject(data);
       this.pendingRequest.subscribe({
         next: (value) => {
@@ -120,6 +140,16 @@ export class UserFormComponent implements OnInit {
           this.snackBar.createMessage($localize `Operation failed.`);
         },
       });
+    }
+  }
+
+  private onChangePasswordChange(changePassword: boolean) {
+    if (changePassword) {
+      this.passwordField.enable();
+      this.confirmPasswordField.enable();
+    } else {
+      this.passwordField.disable();
+      this.confirmPasswordField.disable();
     }
   }
 

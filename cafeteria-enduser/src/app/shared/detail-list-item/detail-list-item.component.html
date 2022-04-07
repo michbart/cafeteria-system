@@ -1,4 +1,5 @@
 <mat-list-item class="list-item">
   <div class="item-label">{{ label }}</div>
-  <div class="item-value">{{ isValidDate() ? (value | date: 'dd.MM.yyyy') : value }}</div>
+  <div class="item-value" *ngIf="!!value; else emptyValue">{{ isValidDate() ? (value | date: 'dd.MM.yyyy') : value }}</div>
+  <ng-template #emptyValue>-</ng-template>
 </mat-list-item>

@@ -18,7 +18,7 @@ RUN npm run lint
 FROM enduser-deps AS enduser-build
 
 ARG VERSION=0.0.0
-RUN sed -i "s/^  version: .*$/  version: '${VERSION}'/" src/environments/environment.prod.ts
+RUN sed -i "s/^  version: .*$/  version: '${VERSION}',/" src/environments/environment.prod.ts
 RUN npx ng build -c production
 
 

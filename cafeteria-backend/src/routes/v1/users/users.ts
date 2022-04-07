@@ -42,7 +42,7 @@ router.patch('/:id', validator(schema.update, ValidationSource.BODY), validator(
         if (!user) {
             throw new BadRequestError(`User ${req.params.id} not found.`);
         }
-        const updates = _.pick(req.body, ['givenName', 'surname', 'mail']);
+        const updates = _.pick(req.body, ['givenName', 'surname', 'mail', 'roles', 'password']);
         Object.assign(user, updates);
 
         const updatedUser = await UserRepo.update(req.params.id, user);

@@ -46,7 +46,6 @@ const routes: Routes = [
     path: 'create',
     canActivate: [AuthGuard, RoleGuard],
     component: MealFormComponent,
-    resolve: { meal: ResourceResolver },
     data: {
       roles: [ROLES.COOK, ROLES.USER_ADMIN],
       action: 'create',
