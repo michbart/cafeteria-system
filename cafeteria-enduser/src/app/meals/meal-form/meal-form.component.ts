@@ -2,13 +2,14 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { CustomValidators } from 'src/app/shared/custom-validators';
-import { ResourceService } from 'src/app/shared/resources/resource-service';
-import { SnackBar } from 'src/app/shared/snack-bar';
-import { User } from 'src/app/users/user';
+import * as dayjs from 'dayjs';
+
+import { CustomValidators } from '../../shared/custom-validators';
+import { ResourceService } from '../../shared/resources/resource-service';
+import { SnackBar } from '../../shared/snack-bar';
+import { User } from '../../users/user';
 import { Meal } from '../meal';
 import { ALERGENS } from '../alergens';
-import * as dayjs from 'dayjs';
 import { environment } from '../../../environments/environment';
 
 @Component({

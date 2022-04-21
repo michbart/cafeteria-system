@@ -18,9 +18,10 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { TranslatedPaginatorIntl } from './shared/paginator/translated-paginator-intl';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+
+import { TranslatedPaginatorIntl } from './shared/paginator/translated-paginator-intl';
 
 @NgModule({
   exports: [

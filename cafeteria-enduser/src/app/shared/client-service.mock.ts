@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import _ from 'lodash';
 import { v4 as uuid } from 'uuid';
+
 import { User } from '../users/user';
 import { USERS } from '../users/users-mock';
 import { Meal } from '../meals/meal';

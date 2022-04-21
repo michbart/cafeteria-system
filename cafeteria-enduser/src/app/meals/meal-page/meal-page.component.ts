@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SecurityProvider } from 'src/app/auth/security-provider';
-import { ResourceService } from 'src/app/shared/resources/resource-service';
+import { SecurityProvider } from '../../auth/security-provider';
+import { ResourceService } from '../../shared/resources/resource-service';
 import { Meal } from '../meal';
 
 @Component({

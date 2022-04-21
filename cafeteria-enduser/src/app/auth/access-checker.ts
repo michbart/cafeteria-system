@@ -1,6 +1,7 @@
+import { Injectable } from '@angular/core';
+
 import { SecurityProvider } from './security-provider';
 import { ROLES } from './roles';
-import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',

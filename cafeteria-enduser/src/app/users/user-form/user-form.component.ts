@@ -1,13 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
-import { User } from '../user';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ResourceService } from 'src/app/shared/resources/resource-service';
-import { SnackBar } from 'src/app/shared/snack-bar';
 import { Observable } from 'rxjs';
-import { CustomValidators } from 'src/app/shared/custom-validators';
-import { ROLES } from 'src/app/auth/roles';
-import { AccessChecker } from 'src/app/auth/access-checker';
+
+import { User } from '../user';
+import { ResourceService } from '../../shared/resources/resource-service';
+import { SnackBar } from '../../shared/snack-bar';
+import { CustomValidators } from '../../shared/custom-validators';
+import { ROLES } from '../../auth/roles';
+import { AccessChecker } from '../../auth/access-checker';
 
 @Component({
   selector: 'cafeteria-user-form',

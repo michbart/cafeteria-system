@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../user';
-import { AccessChecker } from 'src/app/auth/access-checker';
-import { Observable } from 'rxjs';
-import { ResourceDeleteDialogComponent } from 'src/app/shared/resource-delete-dialog/resource-delete-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { ResourceService } from 'src/app/shared/resources/resource-service';
-import { SnackBar } from 'src/app/shared/snack-bar';
+import { Observable } from 'rxjs';
+
+import { User } from '../user';
+import { AccessChecker } from '../../auth/access-checker';
+import { ResourceDeleteDialogComponent } from '../../shared/resource-delete-dialog/resource-delete-dialog.component';
+import { ResourceService } from '../../shared/resources/resource-service';
+import { SnackBar } from '../../shared/snack-bar';
 import { environment } from '../../../environments/environment';
-import { SecurityProvider } from 'src/app/auth/security-provider';
+import { SecurityProvider } from '../../auth/security-provider';
 
 @Component({
   selector: 'cafeteria-user-detail',

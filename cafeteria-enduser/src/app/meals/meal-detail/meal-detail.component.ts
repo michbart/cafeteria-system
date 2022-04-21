@@ -2,12 +2,13 @@ import { Component, OnInit, Inject, LOCALE_ID } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ResourceDeleteDialogComponent } from 'src/app/shared/resource-delete-dialog/resource-delete-dialog.component';
-import { ResourceService } from 'src/app/shared/resources/resource-service';
-import { SnackBar } from 'src/app/shared/snack-bar';
+
+import { ResourceDeleteDialogComponent } from '../../shared/resource-delete-dialog/resource-delete-dialog.component';
+import { ResourceService } from '../../shared/resources/resource-service';
+import { SnackBar } from '../../shared/snack-bar';
 import { ALERGENS } from '../alergens';
 import { Meal } from '../meal';
-import { getCurrentLocale } from 'src/app/shared/get-locale';
+import { getCurrentLocale } from '../../shared/get-locale';
 import { environment } from '../../../environments/environment';
 
 @Component({

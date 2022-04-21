@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { SecurityProvider } from '../security-provider';
-import { SnackBar } from 'src/app/shared/snack-bar';
-import { CustomValidators } from 'src/app/shared/custom-validators';
+import { SnackBar } from '../../shared/snack-bar';
+import { CustomValidators } from '../../shared/custom-validators';
 
 @Component({
   selector: 'cafeteria-login-page',

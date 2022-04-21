@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { User } from 'src/app/users/user';
 import { Router } from '@angular/router';
-import { SecurityProvider } from 'src/app/auth/security-provider';
-import { AccessChecker } from 'src/app/auth/access-checker';
+
+import { environment } from '../../../environments/environment';
+import { User } from '../../users/user';
+import { SecurityProvider } from '../../auth/security-provider';
+import { AccessChecker } from '../../auth/access-checker';
 
 @Component({
   selector: 'cafeteria-layout',

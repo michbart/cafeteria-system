@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from '../material.module';
 import { MealCardComponent } from './meal-card/meal-card.component';
@@ -12,7 +13,6 @@ import { SharedModule } from '../shared/shared.module';
 import { MealListComponent } from './meal-list/meal-list.component';
 import { MealDetailComponent } from './meal-detail/meal-detail.component';
 import { MealFormComponent } from './meal-form/meal-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [

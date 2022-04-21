@@ -1,8 +1,9 @@
 import { Component, Input, OnInit, Inject, LOCALE_ID } from '@angular/core';
+
 import { Meal } from '../meal';
 import { ALERGENS } from '../alergens';
-import { getCurrentLocale } from 'src/app/shared/get-locale';
-import { SnackBar } from 'src/app/shared/snack-bar';
+import { getCurrentLocale } from '../../shared/get-locale';
+import { SnackBar } from '../../shared/snack-bar';
 import { environment } from '../../../environments/environment';
 
 @Component({

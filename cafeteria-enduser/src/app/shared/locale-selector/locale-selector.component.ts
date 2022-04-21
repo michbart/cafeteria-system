@@ -1,4 +1,5 @@
 import { Component, Inject, LOCALE_ID } from '@angular/core';
+
 import { getCurrentLocale } from '../get-locale';
 
 @Component({

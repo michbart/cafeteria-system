@@ -2,6 +2,7 @@ import { ActivatedRouteSnapshot, CanActivate, CanLoad, RouterStateSnapshot,
   Route, UrlSegment, Router, CanActivateChild } from '@angular/router';
 import { from, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+
 import { SecurityProvider } from './security-provider';
 
 @Injectable({
